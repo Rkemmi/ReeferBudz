@@ -118,15 +118,6 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="trust-strip" aria-label="ReeferBudz principles">
-        <p><strong>Built for belonging.</strong> Designed around real friendship.</p>
-        <div>
-          <span>21+ community</span>
-          <span>Safety focused</span>
-          <span>No sales or delivery</span>
-        </div>
-      </section>
-
       <section className="section how" id="how-it-works">
         <div className="section-heading">
           <p className="eyebrow">How it works</p>
@@ -216,15 +207,18 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="join-section" id="join">
-        <div>
-          <p className="eyebrow">Your people are out there</p>
-          <h2>Ready to find your smoke circle?</h2>
-          <p>Create your profile and start building real community.</p>
+      <section className="story-banner" id="join">
+        <div className="story-banner-copy">
+          <p className="eyebrow eyebrow-story">There’s a place for you here</p>
+          <h2>Pull up a chair.<br />Your circle is waiting.</h2>
+          <p>
+            Create your profile, meet your kind of people, and help shape a
+            community that feels like home.
+          </p>
+          <a className="button button-primary" href="#create-account">
+            Create Your Free Account <span aria-hidden="true">→</span>
+          </a>
         </div>
-        <a className="button button-primary" href="#create-account">
-          Create Your Free Account <span aria-hidden="true">→</span>
-        </a>
       </section>
 
       <footer>
