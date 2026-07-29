@@ -51,7 +51,7 @@ export default function Home() {
           />
         </a>
         <nav aria-label="Main navigation">
-          <a href="#how-it-works">How It Works</a>
+          <a href="/how-it-works">How It Works</a>
           <a href="#community">Community</a>
           <a href="#safety">Safety</a>
         </nav>
@@ -286,7 +286,7 @@ export default function Home() {
         <div className="footer-links">
           <div>
             <strong>Explore</strong>
-            <a href="#how-it-works">How It Works</a>
+            <a href="/how-it-works">How It Works</a>
             <a href="#community">Smoke Circles</a>
             <a href="#safety">Safety</a>
           </div>
