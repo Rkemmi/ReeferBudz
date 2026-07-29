@@ -66,19 +66,26 @@ export default function Home() {
       </header>
 
       <section className="hero" id="top">
-        <div className="hero-sun" aria-hidden="true" />
+        <div className="hero-grid" aria-hidden="true" />
+        <div className="hero-route" aria-hidden="true">
+          <span className="route-dot route-a" />
+          <span className="route-dot route-b" />
+          <span className="route-dot route-c" />
+        </div>
         <div className="hero-copy">
           <p className="eyebrow">
             <span className="eyebrow-dot" />
-            Cannabis-friendly. Friendship-focused.
+            Cleveland born · Community bound
           </p>
           <h1>
-            Find the people who
-            <span> feel like your people.</span>
+            Your people
+            <span>are out there.</span>
+            <em>Let’s find them.</em>
           </h1>
           <p className="hero-lead">
-            ReeferBudz helps cannabis-friendly adults make genuine friends,
-            discover local communities, and find their smoke circle.
+            A friendship-first community where cannabis-friendly adults meet
+            through real interests, local energy, and the kind of connection
+            that gets you off the couch.
           </p>
           <div className="hero-actions">
             <a className="button button-primary" href="#join">
@@ -97,13 +104,18 @@ export default function Home() {
         </div>
 
         <div className="hero-art" aria-label="The ReeferBudz mascots">
+          <div className="hero-city">CLEVELAND · 41.4993° N</div>
           <div className="location-chip chip-one">
             <span className="pin" aria-hidden="true">●</span>
-            New Budz nearby
+            12 Budz in your orbit
           </div>
           <div className="location-chip chip-two">
             <span aria-hidden="true">✦</span>
             8 shared interests
+          </div>
+          <div className="location-chip chip-three">
+            <span aria-hidden="true">○</span>
+            Vinyl & Vibes · Friday
           </div>
           <div className="mascot-stage">
             <div className="stage-ring" />
@@ -118,14 +130,31 @@ export default function Home() {
         </div>
       </section>
 
+      <div className="interest-ribbon" aria-label="Popular ReeferBudz interests">
+        <div>
+          <span>LIVE MUSIC</span><b>✦</b>
+          <span>GAMING</span><b>✦</b>
+          <span>LAKEFRONT HANGS</span><b>✦</b>
+          <span>ART & MAKING</span><b>✦</b>
+          <span>FOOD ADVENTURES</span><b>✦</b>
+          <span>OUTDOORS</span><b>✦</b>
+          <span>GOOD CONVERSATION</span><b>✦</b>
+        </div>
+      </div>
+
       <section className="section how" id="how-it-works">
         <div className="section-heading">
-          <p className="eyebrow">How it works</p>
-          <h2>Your circle could be closer than you think.</h2>
+          <p className="eyebrow">The shortest route to your people</p>
+          <h2>Less swiping.<br />More actually clicking.</h2>
           <p>
-            A few thoughtful steps help you meet people with more in common
-            than a ZIP code.
+            ReeferBudz starts with who you are and what you genuinely enjoy—not
+            a popularity contest.
           </p>
+        </div>
+        <div className="connection-trail" aria-hidden="true">
+          <span />
+          <span />
+          <span />
         </div>
         <div className="steps">
           {steps.map((step) => (
@@ -141,22 +170,37 @@ export default function Home() {
 
       <section className="community-section" id="community">
         <div className="community-art">
+          <div className="orbit-label">YOUR CLEVELAND ORBIT</div>
+          <div className="profile-card profile-one">
+            <div className="profile-avatar avatar-orange">M</div>
+            <div><strong>Maya, 29</strong><span>Art · Hiking · Live music</span></div>
+            <b>92%</b>
+          </div>
+          <div className="profile-card profile-two">
+            <div className="profile-avatar avatar-lime">J</div>
+            <div><strong>Jordan, 34</strong><span>Gaming · Food · Vinyl</span></div>
+            <b>88%</b>
+          </div>
           <div className="circle-card circle-card-one">
-            <div className="circle-icon">☀</div>
+            <div className="circle-icon">
+              <Image src="/brand/icons/outdoor-setting.png" alt="" width={64} height={64} />
+            </div>
             <div>
               <strong>Lakefront Chillers</strong>
-              <span>Outdoor hangs · Cleveland</span>
+              <span>Outdoor hangs · 2.4 mi</span>
             </div>
           </div>
           <div className="circle-card circle-card-two">
-            <div className="circle-icon">♫</div>
+            <div className="circle-icon circle-icon-type">♫</div>
             <div>
               <strong>Vinyl & Vibes</strong>
               <span>Music lovers · 86 members</span>
             </div>
           </div>
           <div className="circle-card circle-card-three">
-            <div className="circle-icon">✦</div>
+            <div className="circle-icon">
+              <Image src="/brand/icons/smoke-circle.png" alt="" width={64} height={64} />
+            </div>
             <div>
               <strong>Creative Budz</strong>
               <span>Art, ideas & good company</span>
@@ -164,12 +208,11 @@ export default function Home() {
           </div>
         </div>
         <div className="community-copy">
-          <p className="eyebrow">More than a match</p>
-          <h2>Community grows around what you already love.</h2>
+          <p className="eyebrow">Your social orbit, reimagined</p>
+          <h2>Not a feed.<br />A way into real life.</h2>
           <p>
-            Smoke Circles make it easier to find your kind of people—whether
-            you’re into live music, gaming, hiking, art, food, or relaxed local
-            meetups.
+            Find individual Budz and local Smoke Circles through the interests,
+            energy, and plans you already care about.
           </p>
           <ul>
             {communityPoints.map((point) => (
@@ -192,8 +235,8 @@ export default function Home() {
           />
         </div>
         <div className="safety-copy">
-          <p className="eyebrow eyebrow-light">Safe by design</p>
-          <h2>Good connections start with trust.</h2>
+          <p className="eyebrow eyebrow-light">The green-light standard</p>
+          <h2>Meet boldly.<br />Connect carefully.</h2>
           <p>
             Age requirements, privacy choices, community rules, and simple
             reporting tools are built into the experience from day one.
