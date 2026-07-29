@@ -2066,3 +2066,99 @@ footer {
     min-height: auto;
   }
 }
+
+/* Brighter without louder */
+
+.hero {
+  background:
+    radial-gradient(circle at 74% 42%, rgba(245, 166, 35, 0.34), transparent 24%),
+    radial-gradient(circle at 8% 92%, rgba(255, 107, 26, 0.24), transparent 29%),
+    linear-gradient(135deg, #0b6a3a 0%, var(--forest) 72%);
+}
+
+.hero-grid {
+  opacity: 0.7;
+}
+
+.stage-ring {
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.35),
+    0 0 85px rgba(245, 166, 35, 0.34),
+    0 40px 90px rgba(0, 0, 0, 0.26);
+}
+
+.interest-ribbon {
+  background: linear-gradient(90deg, #a8ed4f, var(--leaf), #b7f266);
+}
+
+.how {
+  background:
+    radial-gradient(circle at 85% 20%, rgba(245, 166, 35, 0.17), transparent 24%),
+    linear-gradient(180deg, #fffdf8, #fff8ec);
+}
+
+.step:nth-child(1) {
+  background: #ffd8bd;
+  border-color: rgba(255, 107, 26, 0.22);
+}
+
+.step:nth-child(2) {
+  background: #dcf6b9;
+  border-color: rgba(14, 122, 62, 0.18);
+}
+
+.step:nth-child(3) {
+  background: #ffe7a3;
+  border-color: rgba(245, 166, 35, 0.24);
+}
+
+.manifesto-break {
+  background:
+    linear-gradient(90deg, rgba(255, 255, 255, 0.14), transparent 28%),
+    var(--leaf);
+}
+
+.manifesto-break strong {
+  color: var(--forest);
+  text-decoration-color: var(--orange);
+  text-decoration-line: underline;
+  text-decoration-thickness: 4px;
+  text-underline-offset: 7px;
+}
+
+.community-section {
+  background:
+    radial-gradient(circle at 82% 25%, rgba(245, 166, 35, 0.24), transparent 26%),
+    radial-gradient(circle at 12% 80%, rgba(155, 226, 59, 0.2), transparent 26%),
+    linear-gradient(145deg, #0e7a3e, #12382b 72%);
+}
+
+.community-art {
+  background:
+    radial-gradient(circle at 50% 43%, rgba(255, 107, 26, 0.3), transparent 28%),
+    rgba(255, 255, 255, 0.09);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.profile-card {
+  box-shadow:
+    0 20px 45px rgba(0, 0, 0, 0.2),
+    0 0 0 4px rgba(255, 255, 255, 0.1);
+}
+
+.safety-section {
+  background:
+    radial-gradient(circle at 85% 30%, rgba(245, 166, 35, 0.22), transparent 28%),
+    linear-gradient(115deg, #fff1df, #fff9f0);
+}
+
+.safety-mark {
+  box-shadow:
+    0 0 0 18px rgba(155, 226, 59, 0.19),
+    0 0 0 36px rgba(245, 166, 35, 0.1);
+}
+
+.button-primary,
+.button-green {
+  background: linear-gradient(135deg, #b5ef68, var(--leaf));
+}
