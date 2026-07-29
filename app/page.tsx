@@ -168,6 +168,12 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="manifesto-break" aria-label="What makes ReeferBudz different">
+        <span>NO DATING GAME.</span>
+        <span>NO DEALER MARKETPLACE.</span>
+        <strong>JUST YOUR PEOPLE.</strong>
+      </section>
+
       <section className="community-section" id="community">
         <div className="community-art">
           <div className="orbit-label">YOUR CLEVELAND ORBIT</div>
@@ -244,9 +250,9 @@ export default function Home() {
           <a href="#safety-center">Visit the Safety Center <span aria-hidden="true">→</span></a>
         </div>
         <div className="safety-points">
-          <div><strong>21+</strong><span>Adults-only community</span></div>
-          <div><strong>Private</strong><span>You control what others see</span></div>
-          <div><strong>Protected</strong><span>Block and report anytime</span></div>
+          <div><b>01</b><strong>21+</strong><span>Adults-only community</span></div>
+          <div><b>02</b><strong>Private</strong><span>You control what others see</span></div>
+          <div><b>03</b><strong>Protected</strong><span>Block and report anytime</span></div>
         </div>
       </section>
 
