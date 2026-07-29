@@ -169,9 +169,9 @@ export default function Home() {
       </section>
 
       <section className="manifesto-break" aria-label="What makes ReeferBudz different">
-        <span>NO DATING GAME.</span>
-        <span>NO DEALER MARKETPLACE.</span>
-        <strong>JUST YOUR PEOPLE.</strong>
+        <span>FRIENDSHIP FIRST.</span>
+        <span>NO SALES.</span>
+        <strong>REAL COMMUNITY.</strong>
       </section>
 
       <section className="community-section" id="community">
