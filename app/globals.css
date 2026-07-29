@@ -40,7 +40,7 @@ html {
 
 body {
   margin: 0;
-  background: var(--white);
+  background: #fbfcfb;
   color: var(--ink);
   font-family: "Nunito Sans", Arial, sans-serif;
 }
@@ -171,8 +171,8 @@ nav a:hover,
 .hero {
   align-items: center;
   background:
-    radial-gradient(circle at 76% 44%, rgba(155, 226, 59, 0.26), transparent 28%),
-    linear-gradient(120deg, #fbfcfb 0%, #f0f6ee 100%);
+    radial-gradient(circle at 76% 44%, rgba(155, 226, 59, 0.2), transparent 28%),
+    linear-gradient(180deg, #fbfcfb 0%, #f7faf7 100%);
   display: grid;
   gap: 48px;
   grid-template-columns: minmax(0, 1.02fr) minmax(430px, 0.98fr);
@@ -340,8 +340,10 @@ h1 span {
 
 .trust-strip {
   align-items: center;
-  background: var(--forest);
-  color: white;
+  background: #f7faf7;
+  border-bottom: 1px solid rgba(18, 56, 43, 0.08);
+  border-top: 1px solid rgba(18, 56, 43, 0.08);
+  color: var(--forest);
   display: flex;
   justify-content: space-between;
   min-height: 90px;
@@ -353,7 +355,7 @@ h1 span {
 }
 
 .trust-strip strong {
-  color: var(--leaf);
+  color: var(--deep-green);
 }
 
 .trust-strip div {
@@ -378,6 +380,7 @@ h1 span {
 }
 
 .section {
+  background: #fbfcfb;
   padding: 118px clamp(32px, 7vw, 112px);
 }
 
@@ -410,25 +413,27 @@ h2 {
 
 .steps {
   display: grid;
-  gap: 22px;
+  gap: 42px;
   grid-template-columns: repeat(3, 1fr);
 }
 
 .step {
-  background: var(--mist);
-  border: 1px solid rgba(18, 56, 43, 0.06);
-  border-radius: 24px;
-  min-height: 295px;
-  padding: 32px;
+  background: transparent;
+  border-radius: 0;
+  border-top: 3px solid var(--line);
+  min-height: 250px;
+  padding: 27px 8px 15px;
   position: relative;
 }
 
 .step:nth-child(2) {
-  background: #eff8e7;
+  background: transparent;
+  border-top-color: var(--leaf);
 }
 
 .step:nth-child(3) {
-  background: #fff3e8;
+  background: transparent;
+  border-top-color: var(--orange);
 }
 
 .step-number {
@@ -436,7 +441,7 @@ h2 {
   font-size: 14px;
   font-weight: 1000;
   letter-spacing: 0.08em;
-  margin-bottom: 48px;
+  margin-bottom: 32px;
 }
 
 .step h3 {
@@ -457,12 +462,13 @@ h2 {
   font-size: 24px;
   font-weight: 1000;
   position: absolute;
-  right: 30px;
+  right: 8px;
 }
 
 .community-section {
   align-items: center;
-  background: var(--mist);
+  background: #fbfcfb;
+  border-top: 1px solid rgba(18, 56, 43, 0.08);
   display: grid;
   gap: clamp(50px, 8vw, 130px);
   grid-template-columns: minmax(400px, 0.92fr) minmax(400px, 1.08fr);
@@ -471,9 +477,10 @@ h2 {
 
 .community-art {
   background:
-    radial-gradient(circle at 40% 25%, rgba(155, 226, 59, 0.5), transparent 30%),
-    var(--forest);
-  border-radius: 34px;
+    radial-gradient(circle at 40% 25%, rgba(155, 226, 59, 0.36), transparent 31%),
+    linear-gradient(145deg, #eef6e9, #f7faf7);
+  border: 1px solid rgba(18, 56, 43, 0.08);
+  border-radius: 30px;
   min-height: 530px;
   overflow: hidden;
   padding: 60px 35px;
@@ -482,7 +489,7 @@ h2 {
 
 .community-art::before,
 .community-art::after {
-  border: 1px solid rgba(155, 226, 59, 0.18);
+  border: 1px solid rgba(14, 122, 62, 0.12);
   border-radius: 50%;
   content: "";
   height: 430px;
@@ -504,7 +511,8 @@ h2 {
   align-items: center;
   background: white;
   border-radius: 18px;
-  box-shadow: 0 20px 55px rgba(0, 0, 0, 0.24);
+  border: 1px solid rgba(18, 56, 43, 0.08);
+  box-shadow: 0 18px 45px rgba(18, 56, 43, 0.1);
   display: flex;
   gap: 16px;
   max-width: 360px;
@@ -593,8 +601,9 @@ h2 {
 
 .safety-section {
   align-items: center;
-  background: var(--forest);
-  color: white;
+  background: #fbfcfb;
+  border-top: 1px solid rgba(18, 56, 43, 0.08);
+  color: var(--forest);
   display: grid;
   gap: 50px;
   grid-template-columns: 180px minmax(300px, 1fr) minmax(300px, 0.9fr);
@@ -605,8 +614,8 @@ h2 {
 
 .safety-mark {
   align-items: center;
-  background: rgba(155, 226, 59, 0.1);
-  border: 1px solid rgba(155, 226, 59, 0.22);
+  background: #eef7e8;
+  border: 1px solid rgba(14, 122, 62, 0.12);
   border-radius: 50%;
   display: flex;
   height: 160px;
@@ -620,26 +629,26 @@ h2 {
 }
 
 .eyebrow-light {
-  color: var(--leaf);
+  color: var(--deep-green);
 }
 
 .safety-copy h2 {
-  color: white;
+  color: var(--forest);
   font-size: clamp(36px, 3.5vw, 54px);
 }
 
 .safety-copy p {
-  color: rgba(255, 255, 255, 0.72);
+  color: var(--slate);
   line-height: 1.65;
   max-width: 620px;
 }
 
 .safety-copy a {
-  color: var(--leaf);
+  color: var(--deep-green);
 }
 
 .safety-points {
-  border-left: 1px solid rgba(255, 255, 255, 0.16);
+  border-left: 1px solid var(--line);
   display: grid;
   gap: 25px;
   padding-left: 44px;
@@ -651,20 +660,21 @@ h2 {
 }
 
 .safety-points strong {
-  color: var(--leaf);
+  color: var(--deep-green);
   font-size: 18px;
 }
 
 .safety-points span {
-  color: rgba(255, 255, 255, 0.7);
+  color: var(--slate);
   font-size: 14px;
 }
 
 .join-section {
   align-items: center;
   background:
-    radial-gradient(circle at 90% 30%, rgba(255, 107, 26, 0.15), transparent 25%),
-    #f4faed;
+    radial-gradient(circle at 90% 30%, rgba(255, 107, 26, 0.1), transparent 25%),
+    #f7faf7;
+  border-top: 1px solid rgba(18, 56, 43, 0.08);
   display: flex;
   gap: 50px;
   justify-content: space-between;
@@ -771,7 +781,7 @@ footer {
 
   .safety-points {
     border-left: 0;
-    border-top: 1px solid rgba(255, 255, 255, 0.16);
+    border-top: 1px solid var(--line);
     grid-column: 1 / -1;
     grid-template-columns: repeat(3, 1fr);
     padding-left: 0;
