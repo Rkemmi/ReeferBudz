@@ -66,12 +66,33 @@ const foundingSteps = [
   },
 ];
 
+const stages = [
+  {
+    label: "Profile",
+    title: "Start with who you are.",
+    copy: "Join early access, confirm 21+, and help shape the interests and privacy choices that future profiles need.",
+    range: "Steps 01-04",
+  },
+  {
+    label: "Connection",
+    title: "Find common ground first.",
+    copy: "Discovery and conversations are being designed around shared interests, safety tools, and friendship-first intent.",
+    range: "Steps 05-06",
+  },
+  {
+    label: "Community",
+    title: "Grow into real circles.",
+    copy: "Founding Budz help decide what the first Smoke Circles should become when the community is ready.",
+    range: "Steps 07-08",
+  },
+];
+
 export default function HowItWorks() {
   return (
     <main>
       <div className="age-bar">
         <span className="age-badge">21+</span>
-        A community for adults. Friendship and connection—never cannabis sales.
+        Adults only. Friendship, never cannabis sales.
       </div>
 
       <header className="site-header">
@@ -82,6 +103,7 @@ export default function HowItWorks() {
             width={320}
             height={116}
             priority
+            unoptimized
           />
         </a>
         <nav aria-label="Main navigation">
@@ -90,9 +112,9 @@ export default function HowItWorks() {
           <a href="/#safety">Safety</a>
         </nav>
         <div className="header-actions">
-          <a className="text-link" href="/#our-story">Our Story</a>
+          <a className="text-link" href="/#community">Our Story</a>
           <a className="button button-small button-green" href="#join">
-            Join Early Access
+            Join <span className="wide-label">Early Access</span>
           </a>
         </div>
       </header>
@@ -101,58 +123,63 @@ export default function HowItWorks() {
         <div className="process-hero-copy">
           <p className="eyebrow">
             <span className="eyebrow-dot" />
-            How ReeferBudz grows
+            How it works
           </p>
-          <h1>From one idea<br />to the first circle.</h1>
+          <h1>Profile. Connection. Community.</h1>
           <p>
-            ReeferBudz is not pretending the community already exists. Founding
-            Budz will help shape it—and this is the path we’ll follow together.
+            ReeferBudz starts with Founding Budz, then grows carefully into a
+            friendship-first community for adults 21+. No fake shortcuts, no
+            made-up activity, and no cannabis sales.
           </p>
           <a className="button button-primary" href="#journey">
-            Follow the journey <span aria-hidden="true">↓</span>
+            See the steps <span aria-hidden="true">↓</span>
           </a>
         </div>
-        <div className="process-hero-art">
-          <div className="process-orbit">
-            <span>PROFILE</span>
-            <span>CONNECT</span>
-            <span>CIRCLE</span>
+        <div className="process-hero-panel" aria-label="ReeferBudz community path preview">
+          <div className="path-line" aria-hidden="true" />
+          <div className="path-point path-profile">
+            <strong>Profile</strong>
+            <span>Interests, comfort, privacy</span>
           </div>
-          <Image
-            src="/brand/reeferbudz-mascots.png"
-            alt="The ReeferBudz mascots beginning the community journey"
-            width={1024}
-            height={682}
-            priority
-          />
+          <div className="path-point path-connection">
+            <strong>Connection</strong>
+            <span>Shared ground before hello</span>
+          </div>
+          <div className="path-point path-community">
+            <strong>Community</strong>
+            <span>Future Smoke Circles</span>
+          </div>
+          <div className="path-mascots">
+            <Image
+              src="/brand/reeferbudz-mascots.png"
+              alt="The ReeferBudz mascots beginning the community journey"
+              width={1024}
+              height={682}
+              priority
+              unoptimized
+            />
+          </div>
         </div>
       </section>
 
-      <section className="now-next">
-        <div>
-          <span className="status-dot" />
-          <p>Available now</p>
-          <strong>Join the Founding Budz early-access list.</strong>
-        </div>
-        <div>
-          <span className="status-dot status-future" />
-          <p>Being designed</p>
-          <strong>Profiles, discovery, connections, messages, and Circles.</strong>
-        </div>
-        <div>
-          <span className="status-dot status-goal" />
-          <p>Available later</p>
-          <strong>The first Smoke Circles and real-world friendship.</strong>
-        </div>
+      <section className="stage-section" aria-label="ReeferBudz journey stages">
+        {stages.map((stage) => (
+          <article className="stage-card" key={stage.label}>
+            <span>{stage.range}</span>
+            <h2>{stage.label}</h2>
+            <h3>{stage.title}</h3>
+            <p>{stage.copy}</p>
+          </article>
+        ))}
       </section>
 
       <section className="journey-section" id="journey">
         <div className="journey-intro">
           <p className="eyebrow">The founding journey</p>
-          <h2>Eight clear steps.<br />No fake shortcuts.</h2>
+          <h2>Eight steps, shown honestly.</h2>
           <p>
-            We will build deliberately, protect the culture early, and only
-            promise features when they are ready.
+            Some steps are open now. Some are being designed. A few come later
+            after enough Founding Budz help shape the culture.
           </p>
         </div>
         <div className="journey-list">
@@ -199,10 +226,10 @@ export default function HowItWorks() {
       <footer>
         <div className="footer-brand">
           <Image
-            src="/brand/reeferbudz-wordmark.png"
+            src="/brand/reeferbudz-primary-logo.png"
             alt="ReeferBudz"
-            width={260}
-            height={94}
+            width={360}
+            height={244}
             unoptimized
           />
           <p>Find Your Smoke Circle.</p>
@@ -216,7 +243,7 @@ export default function HowItWorks() {
           </div>
           <div>
             <strong>Company</strong>
-            <a href="/#about">About</a>
+            <a href="/#community">About</a>
             <a href="/#guidelines">Community Guidelines</a>
             <a href="/#contact">Contact</a>
           </div>

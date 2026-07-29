@@ -37,7 +37,7 @@ export default function Home() {
     <main>
       <div className="age-bar">
         <span className="age-badge">21+</span>
-        A community for adults. Friendship and connection—never cannabis sales.
+        Adults only. Friendship, never cannabis sales.
       </div>
 
       <header className="site-header">
@@ -48,6 +48,7 @@ export default function Home() {
             width={320}
             height={116}
             priority
+            unoptimized
           />
         </a>
         <nav aria-label="Main navigation">
@@ -56,11 +57,11 @@ export default function Home() {
           <a href="#safety">Safety</a>
         </nav>
         <div className="header-actions">
-          <a className="text-link" href="#sign-in">
+          <a className="text-link" href="#community">
             Our Story
           </a>
           <a className="button button-small button-green" href="#join">
-            Join Early Access
+            Join <span className="wide-label">Early Access</span>
           </a>
         </div>
       </header>
@@ -125,6 +126,7 @@ export default function Home() {
               width={1024}
               height={682}
               priority
+              unoptimized
             />
           </div>
         </div>
@@ -189,7 +191,7 @@ export default function Home() {
           </div>
           <div className="circle-card circle-card-one">
             <div className="circle-icon">
-              <Image src="/brand/icons/outdoor-setting.png" alt="" width={64} height={64} />
+              <Image src="/brand/icons/outdoor-setting.png" alt="" width={64} height={64} unoptimized />
             </div>
             <div>
               <strong>Lakefront Hangouts</strong>
@@ -205,7 +207,7 @@ export default function Home() {
           </div>
           <div className="circle-card circle-card-three">
             <div className="circle-icon">
-              <Image src="/brand/icons/smoke-circle.png" alt="" width={64} height={64} />
+              <Image src="/brand/icons/smoke-circle.png" alt="" width={64} height={64} unoptimized />
             </div>
             <div>
               <strong>Creative Budz</strong>
@@ -239,6 +241,7 @@ export default function Home() {
             alt=""
             width={512}
             height={512}
+            unoptimized
           />
         </div>
         <div className="safety-copy">
@@ -275,10 +278,10 @@ export default function Home() {
       <footer>
         <div className="footer-brand">
           <Image
-            src="/brand/reeferbudz-wordmark.png"
+            src="/brand/reeferbudz-primary-logo.png"
             alt="ReeferBudz"
-            width={260}
-            height={94}
+            width={360}
+            height={244}
             unoptimized
           />
           <p>Find Your Smoke Circle.</p>
@@ -292,7 +295,7 @@ export default function Home() {
           </div>
           <div>
             <strong>Company</strong>
-            <a href="#about">About</a>
+            <a href="#community">About</a>
             <a href="#guidelines">Community Guidelines</a>
             <a href="#contact">Contact</a>
           </div>
