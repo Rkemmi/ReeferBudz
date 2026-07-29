@@ -279,6 +279,7 @@ export default function Home() {
             alt="ReeferBudz"
             width={260}
             height={94}
+            unoptimized
           />
           <p>Find Your Smoke Circle.</p>
         </div>
