@@ -10,26 +10,26 @@ export const metadata: Metadata = {
 const steps = [
   {
     number: "01",
-    title: "Build your profile",
-    copy: "Share your interests, friendship goals, favorite activities, and the kind of community you want.",
+    title: "Bring what you’re into",
+    copy: "Share the interests, activities, and friendship energy you want your future circle to grow around.",
   },
   {
     number: "02",
-    title: "Discover your Budz",
-    copy: "Meet compatible adults nearby through shared interests, availability, and cannabis-friendly lifestyles.",
+    title: "Help shape the culture",
+    copy: "Founding Budz will help establish the tone, community expectations, and kinds of circles ReeferBudz creates.",
   },
   {
     number: "03",
-    title: "Find your circle",
-    copy: "Connect one-to-one or join local Smoke Circles built around friendship, activities, and belonging.",
+    title: "Build the first circles",
+    copy: "As the community opens, meet through shared interests and help turn local ideas into real friendships.",
   },
 ];
 
 const communityPoints = [
-  "Friendship first—not dating",
-  "Private, respectful connections",
-  "Local interest-based Smoke Circles",
-  "Clear reporting and blocking tools",
+  "Influence the first community features",
+  "Suggest early Smoke Circle themes",
+  "Help establish respectful community norms",
+  "Receive an invitation when early access opens",
 ];
 
 export default function Home() {
@@ -57,10 +57,10 @@ export default function Home() {
         </nav>
         <div className="header-actions">
           <a className="text-link" href="#sign-in">
-            Sign In
+            Our Story
           </a>
           <a className="button button-small button-green" href="#join">
-            Create Account
+            Join Early Access
           </a>
         </div>
       </header>
@@ -75,21 +75,21 @@ export default function Home() {
         <div className="hero-copy">
           <p className="eyebrow">
             <span className="eyebrow-dot" />
-            Cleveland born · Community bound
+            The first circle starts here
           </p>
           <h1>
-            Your people
-            <span>are out there.</span>
-            <em>Let’s find them.</em>
+            Don’t join
+            <span>another network.</span>
+            <em>Help build your community.</em>
           </h1>
           <p className="hero-lead">
-            A friendship-first community where cannabis-friendly adults meet
-            through real interests, local energy, and the kind of connection
-            that gets you off the couch.
+            ReeferBudz is being created for cannabis-friendly adults who want
+            genuine friendship—not dating, selling, or another empty feed.
+            Become a Founding Bud and help shape what comes next.
           </p>
           <div className="hero-actions">
             <a className="button button-primary" href="#join">
-              Find Your Smoke Circle
+              Become a Founding Bud
               <span aria-hidden="true">→</span>
             </a>
             <a className="button button-secondary" href="#how-it-works">
@@ -97,9 +97,9 @@ export default function Home() {
             </a>
           </div>
           <p className="microcopy">
-            <span aria-hidden="true">✓</span> Free to join
+            <span aria-hidden="true">✓</span> Early access
             <span aria-hidden="true">•</span> Adults 21+
-            <span aria-hidden="true">•</span> Community safety built in
+            <span aria-hidden="true">•</span> Friendship first
           </p>
         </div>
 
@@ -107,15 +107,15 @@ export default function Home() {
           <div className="hero-city">CLEVELAND · 41.4993° N</div>
           <div className="location-chip chip-one">
             <span className="pin" aria-hidden="true">●</span>
-            12 Budz in your orbit
+            Built with Cleveland roots
           </div>
           <div className="location-chip chip-two">
             <span aria-hidden="true">✦</span>
-            8 shared interests
+            Shaped by Founding Budz
           </div>
           <div className="location-chip chip-three">
             <span aria-hidden="true">○</span>
-            Vinyl & Vibes · Friday
+            Friendship · Community · 21+
           </div>
           <div className="mascot-stage">
             <div className="stage-ring" />
@@ -144,11 +144,11 @@ export default function Home() {
 
       <section className="section how" id="how-it-works">
         <div className="section-heading">
-          <p className="eyebrow">The shortest route to your people</p>
-          <h2>Less swiping.<br />More actually clicking.</h2>
+          <p className="eyebrow">Build it with us</p>
+          <h2>The community begins before the doors open.</h2>
           <p>
-            ReeferBudz starts with who you are and what you genuinely enjoy—not
-            a popularity contest.
+            This is your chance to influence a friendship-first platform from
+            its earliest days—not arrive after someone else has defined it.
           </p>
         </div>
         <div className="connection-trail" aria-hidden="true">
@@ -171,36 +171,36 @@ export default function Home() {
       <section className="manifesto-break" aria-label="What makes ReeferBudz different">
         <span>FRIENDSHIP FIRST.</span>
         <span>NO SALES.</span>
-        <strong>REAL COMMUNITY.</strong>
+        <strong>BUILT TOGETHER.</strong>
       </section>
 
       <section className="community-section" id="community">
         <div className="community-art">
-          <div className="orbit-label">YOUR CLEVELAND ORBIT</div>
+          <div className="orbit-label">WHAT WE COULD BUILD TOGETHER</div>
           <div className="profile-card profile-one">
-            <div className="profile-avatar avatar-orange">M</div>
-            <div><strong>Maya, 29</strong><span>Art · Hiking · Live music</span></div>
-            <b>92%</b>
+            <div className="profile-avatar avatar-orange">01</div>
+            <div><strong>Interest-led discovery</strong><span>Find common ground before saying hello</span></div>
+            <b>IDEA</b>
           </div>
           <div className="profile-card profile-two">
-            <div className="profile-avatar avatar-lime">J</div>
-            <div><strong>Jordan, 34</strong><span>Gaming · Food · Vinyl</span></div>
-            <b>88%</b>
+            <div className="profile-avatar avatar-lime">02</div>
+            <div><strong>Community-made circles</strong><span>Local groups shaped by the people inside them</span></div>
+            <b>IDEA</b>
           </div>
           <div className="circle-card circle-card-one">
             <div className="circle-icon">
               <Image src="/brand/icons/outdoor-setting.png" alt="" width={64} height={64} />
             </div>
             <div>
-              <strong>Lakefront Chillers</strong>
-              <span>Outdoor hangs · 2.4 mi</span>
+              <strong>Lakefront Hangouts</strong>
+              <span>Future circle idea · Outdoors</span>
             </div>
           </div>
           <div className="circle-card circle-card-two">
             <div className="circle-icon circle-icon-type">♫</div>
             <div>
               <strong>Vinyl & Vibes</strong>
-              <span>Music lovers · 86 members</span>
+              <span>Future circle idea · Music</span>
             </div>
           </div>
           <div className="circle-card circle-card-three">
@@ -209,16 +209,17 @@ export default function Home() {
             </div>
             <div>
               <strong>Creative Budz</strong>
-              <span>Art, ideas & good company</span>
+              <span>Future circle idea · Art and making</span>
             </div>
           </div>
         </div>
         <div className="community-copy">
-          <p className="eyebrow">Your social orbit, reimagined</p>
-          <h2>Not a feed.<br />A way into real life.</h2>
+          <p className="eyebrow">A preview, not a promise</p>
+          <h2>Imagine what your circle could become.</h2>
           <p>
-            Find individual Budz and local Smoke Circles through the interests,
-            energy, and plans you already care about.
+            These are community possibilities—not fake members or invented
+            activity. Founding Budz will help decide which experiences matter
+            most and what the first Smoke Circles should become.
           </p>
           <ul>
             {communityPoints.map((point) => (
@@ -226,7 +227,7 @@ export default function Home() {
             ))}
           </ul>
           <a className="inline-link" href="#join">
-            Explore Smoke Circles <span aria-hidden="true">→</span>
+            Help shape the first circles <span aria-hidden="true">→</span>
           </a>
         </div>
       </section>
@@ -244,8 +245,9 @@ export default function Home() {
           <p className="eyebrow eyebrow-light">The green-light standard</p>
           <h2>Meet boldly.<br />Connect carefully.</h2>
           <p>
-            Age requirements, privacy choices, community rules, and simple
-            reporting tools are built into the experience from day one.
+            Founding the community does not mean compromising safety. Age
+            requirements, privacy choices, community rules, and reporting tools
+            are part of the foundation.
           </p>
           <a href="#safety-center">Visit the Safety Center <span aria-hidden="true">→</span></a>
         </div>
@@ -258,14 +260,14 @@ export default function Home() {
 
       <section className="story-banner" id="join">
         <div className="story-banner-copy">
-          <p className="eyebrow eyebrow-story">There’s a place for you here</p>
-          <h2>Pull up a chair.<br />Your circle is waiting.</h2>
+          <p className="eyebrow eyebrow-story">Founding Budz wanted</p>
+          <h2>Pull up a chair.<br />Help build the circle.</h2>
           <p>
-            Create your profile, meet your kind of people, and help shape a
-            community that feels like home.
+            Join early access and be among the first adults invited to help
+            shape the ReeferBudz community.
           </p>
           <a className="button button-primary" href="#create-account">
-            Create Your Free Account <span aria-hidden="true">→</span>
+            Join the Founding Budz <span aria-hidden="true">→</span>
           </a>
         </div>
       </section>
