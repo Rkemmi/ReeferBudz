@@ -3,21 +3,12 @@ import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "How It Works",
-  description: "Follow the honest path from Founding Bud to the first ReeferBudz Smoke Circles.",
+  description: "See how ReeferBudz grows from Founding Budz into real friendship and local Smoke Circles.",
 };
-
-const journey = [
-  ["Join early access", "Confirm you are 21 or older and tell us you want to help build the first community.", "now"],
-  ["Share what matters", "Tell us which interests, friendship features, safety expectations, and Circle ideas matter most.", "now"],
-  ["Receive an invitation", "When early access is ready, Founding Budz will be invited into the first community experience.", "next"],
-  ["Build your profile", "Share interests, activities, friendship goals, availability, and only the location details you are comfortable sharing.", "next"],
-  ["Discover common ground", "Explore potential connections through shared interests—not dating behavior or popularity.", "later"],
-  ["Help create Circles", "As the community grows, turn shared interests into welcoming local Smoke Circles.", "later"],
-];
 
 export default function HowItWorks() {
   return (
-    <main className="story-how">
+    <main className="invite-how">
       <div className="age-bar"><span className="age-badge">21+</span>Adults only. Friendship, never cannabis sales.</div>
 
       <header className="site-header">
@@ -35,56 +26,110 @@ export default function HowItWorks() {
         </div>
       </header>
 
-      <section className="story-how-hero">
-        <p className="eyebrow"><span className="eyebrow-dot" />How we build the first circle</p>
-        <h1>One honest step<br />at a time.</h1>
-        <p>
-          Some parts of ReeferBudz are open now. Others are being designed.
-          This is the real path from early supporter to a working community.
-        </p>
-        <a className="story-text-link" href="#journey">Follow the path ↓</a>
-      </section>
-
-      <section className="story-how-status" aria-label="Current development status">
-        <div><b>Now</b><span>Early access and community input</span></div>
-        <div><b>Next</b><span>Invitations, profiles, and privacy choices</span></div>
-        <div><b>Later</b><span>Discovery, connection, and Smoke Circles</span></div>
-      </section>
-
-      <section className="story-journey" id="journey">
-        <div className="story-journey-intro">
-          <p className="story-section-number">THE JOURNEY</p>
-          <p className="eyebrow">From voice to community</p>
-          <h2>The path is simple.<br />The people shape it.</h2>
-          <p>No fake activity. No invented members. No promises disguised as finished features.</p>
+      <section className="invite-hero">
+        <div className="invite-hero-copy">
+          <p className="eyebrow"><span className="eyebrow-dot" />Your circle starts here</p>
+          <h1>Come as you are.<br /><span>Find who gets you.</span></h1>
+          <p>
+            ReeferBudz is building a friendship-first community around the
+            things you already enjoy—and the people you have not met yet.
+          </p>
+          <div className="invite-actions">
+            <a className="button button-primary" href="#join">I want in <span aria-hidden="true">→</span></a>
+            <a className="invite-link" href="#path">Show me the path ↓</a>
+          </div>
         </div>
-        <ol>
-          {journey.map(([title, copy, phase], index) => (
-            <li key={title}>
-              <span className={`story-journey-dot dot-${phase}`}>{String(index + 1).padStart(2, "0")}</span>
-              <div><small>{phase}</small><h3>{title}</h3><p>{copy}</p></div>
-            </li>
-          ))}
-        </ol>
+        <div className="invite-hero-art">
+          <div className="invite-sun" aria-hidden="true" />
+          <Image
+            src="/brand/reeferbudz-mascots.png"
+            alt="The ReeferBudz mascots welcoming you to the community"
+            width={1024}
+            height={682}
+            priority
+            unoptimized
+          />
+          <span className="invite-bubble bubble-one">Music?</span>
+          <span className="invite-bubble bubble-two">Gaming?</span>
+          <span className="invite-bubble bubble-three">Good conversation?</span>
+        </div>
       </section>
 
-      <section className="story-how-promise">
-        <p className="story-section-number">THE PROMISE</p>
-        <h2>What will stay true as ReeferBudz grows.</h2>
+      <div className="invite-ribbon" aria-label="ReeferBudz community values">
+        <span>Friendship first</span><b>✦</b><span>Adults 21+</span><b>✦</b>
+        <span>Your pace</span><b>✦</b><span>Your interests</span><b>✦</b><span>Your circle</span>
+      </div>
+
+      <section className="invite-path" id="path">
+        <div className="invite-path-intro">
+          <p className="story-section-number">HOW IT GROWS</p>
+          <h2>Three moments.<br />One real beginning.</h2>
+          <p>You do not need a perfect profile or a packed social calendar. You only need a reason to say hello.</p>
+        </div>
+
+        <article className="invite-moment moment-one">
+          <div className="moment-number">01</div>
+          <div className="moment-copy">
+            <small>RIGHT NOW</small>
+            <h3>Raise your hand.</h3>
+            <p>Join early access and tell us what would make this community feel worth showing up for.</p>
+            <span>Join early access · Share your voice</span>
+          </div>
+          <div className="moment-word" aria-hidden="true">HELLO</div>
+        </article>
+
+        <article className="invite-moment moment-two">
+          <div className="moment-number">02</div>
+          <div className="moment-copy">
+            <small>COMING NEXT</small>
+            <h3>Find the common ground.</h3>
+            <p>Build a profile around your interests, your friendship goals, and what you actually like doing.</p>
+            <span>Create your profile · Discover shared interests</span>
+          </div>
+          <div className="moment-word" aria-hidden="true">SAME</div>
+        </article>
+
+        <article className="invite-moment moment-three">
+          <div className="moment-number">03</div>
+          <div className="moment-copy">
+            <small>AS WE GROW</small>
+            <h3>Turn a connection into a circle.</h3>
+            <p>Start a conversation, move at your pace, and help shared interests grow into local Smoke Circles.</p>
+            <span>Connect safely · Build real community</span>
+          </div>
+          <div className="moment-word" aria-hidden="true">US</div>
+        </article>
+      </section>
+
+      <section className="invite-picture">
         <div>
-          <p><strong>Friendship first.</strong> Not a dating or hookup platform.</p>
-          <p><strong>Adults only.</strong> Intended exclusively for people aged 21 and older.</p>
-          <p><strong>No marketplace.</strong> No cannabis sales, delivery, or transaction arrangements.</p>
-          <p><strong>Safety from day one.</strong> Privacy, reporting, blocking, and meeting guidance are foundational.</p>
+          <p className="story-section-number">PICTURE THIS</p>
+          <h2>You arrive knowing<br />you already have something in common.</h2>
+        </div>
+        <p>
+          A listening party. A game night. A lakefront walk. A creative meetup.
+          ReeferBudz is not about collecting matches. It is about making the
+          first hello feel easier.
+        </p>
+      </section>
+
+      <section className="invite-trust">
+        <p className="eyebrow">The non-negotiables</p>
+        <h2>Welcoming does not mean careless.</h2>
+        <div>
+          <span><b>21+</b> Adults only</span>
+          <span><b>Friends</b> Not dating</span>
+          <span><b>No sales</b> No transactions</span>
+          <span><b>Your control</b> Privacy and safety tools</span>
         </div>
       </section>
 
-      <section className="story-banner story-how-closing" id="join">
+      <section className="story-banner story-how-closing invite-closing" id="join">
         <div className="story-banner-copy">
-          <p className="eyebrow eyebrow-story">Take the first step</p>
-          <h2>Your profile can wait.<br />Your voice matters now.</h2>
-          <p>Join the Founding Budz and help decide what ReeferBudz should become.</p>
-          <a className="button button-primary" href="/#join">Join Early Access <span aria-hidden="true">→</span></a>
+          <p className="eyebrow eyebrow-story">The circle is still forming</p>
+          <h2>There is room<br />for you in it.</h2>
+          <p>Become a Founding Bud and help turn ReeferBudz into the community you would actually join.</p>
+          <a className="button button-primary" href="/#join">Save my spot <span aria-hidden="true">→</span></a>
         </div>
       </section>
 
