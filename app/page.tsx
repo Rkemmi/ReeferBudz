@@ -4,312 +4,161 @@ import Image from "next/image";
 export const metadata: Metadata = {
   title: "ReeferBudz | Find Your Smoke Circle",
   description:
-    "A friendship-first community for cannabis-friendly adults 21 and over.",
+    "Help build a friendship-first community for cannabis-friendly adults 21 and over.",
 };
-
-const steps = [
-  {
-    number: "01",
-    title: "Bring what you’re into",
-    copy: "Share the interests, activities, and friendship energy you want your future circle to grow around.",
-  },
-  {
-    number: "02",
-    title: "Help shape the culture",
-    copy: "Founding Budz will help establish the tone, community expectations, and kinds of circles ReeferBudz creates.",
-  },
-  {
-    number: "03",
-    title: "Build the first circles",
-    copy: "As the community opens, meet through shared interests and help turn local ideas into real friendships.",
-  },
-];
-
-const communityPoints = [
-  "Influence the first community features",
-  "Suggest early Smoke Circle themes",
-  "Help establish respectful community norms",
-  "Receive an invitation when early access opens",
-];
 
 export default function Home() {
   return (
-    <main>
+    <main className="story-home">
       <div className="age-bar">
         <span className="age-badge">21+</span>
         Adults only. Friendship, never cannabis sales.
       </div>
 
       <header className="site-header">
-        <a className="brand" href="#top" aria-label="ReeferBudz home">
-          <Image
-            src="/brand/reeferbudz-wordmark.png"
-            alt="ReeferBudz"
-            width={320}
-            height={116}
-            priority
-            unoptimized
-          />
+        <a className="brand" href="/" aria-label="ReeferBudz home">
+          <Image src="/brand/reeferbudz-wordmark.png" alt="ReeferBudz" width={320} height={116} priority unoptimized />
         </a>
         <nav aria-label="Main navigation">
           <a href="/how-it-works">How It Works</a>
-          <a href="#community">Community</a>
-          <a href="#safety">Safety</a>
+          <a href="#vision">The Vision</a>
+          <a href="#trust">Safety</a>
         </nav>
         <div className="header-actions">
-          <a className="text-link" href="#community">
-            Our Story
-          </a>
-          <a className="button button-small button-green" href="#join">
-            Join <span className="wide-label">Early Access</span>
-          </a>
+          <a className="text-link" href="#story">Our Story</a>
+          <a className="button button-small button-green" href="#join">Join Early Access</a>
         </div>
       </header>
 
-      <section className="hero" id="top">
-        <div className="hero-grid" aria-hidden="true" />
-        <div className="hero-route" aria-hidden="true">
-          <span className="route-dot route-a" />
-          <span className="route-dot route-b" />
-          <span className="route-dot route-c" />
-        </div>
-        <div className="hero-copy">
-          <p className="eyebrow">
-            <span className="eyebrow-dot" />
-            The first circle starts here
-          </p>
-          <h1>
-            Don’t join
-            <span>another network.</span>
-            <em>Help build your community.</em>
-          </h1>
-          <p className="hero-lead">
-            ReeferBudz is being created for cannabis-friendly adults who want
-            genuine friendship—not dating, selling, or another empty feed.
-            Become a Founding Bud and help shape what comes next.
-          </p>
-          <div className="hero-actions">
-            <a className="button button-primary" href="#join">
-              Become a Founding Bud
-              <span aria-hidden="true">→</span>
-            </a>
-            <a className="button button-secondary" href="#how-it-works">
-              See How It Works
-            </a>
-          </div>
-          <p className="microcopy">
-            <span aria-hidden="true">✓</span> Early access
-            <span aria-hidden="true">•</span> Adults 21+
-            <span aria-hidden="true">•</span> Friendship first
-          </p>
-        </div>
-
-        <div className="hero-art" aria-label="The ReeferBudz mascots">
-          <div className="hero-city">CLEVELAND · 41.4993° N</div>
-          <div className="location-chip chip-one">
-            <span className="pin" aria-hidden="true">●</span>
-            Built with Cleveland roots
-          </div>
-          <div className="location-chip chip-two">
-            <span aria-hidden="true">✦</span>
-            Shaped by Founding Budz
-          </div>
-          <div className="location-chip chip-three">
-            <span aria-hidden="true">○</span>
-            Friendship · Community · 21+
-          </div>
-          <div className="mascot-stage">
-            <div className="stage-ring" />
-            <Image
-              src="/brand/reeferbudz-mascots.png"
-              alt="Two friendly ReeferBudz cannabis-leaf mascots greeting each other"
-              width={1024}
-              height={682}
-              priority
-              unoptimized
-            />
-          </div>
-        </div>
-      </section>
-
-      <div className="interest-ribbon" aria-label="Popular ReeferBudz interests">
-        <div>
-          <span>LIVE MUSIC</span><b>✦</b>
-          <span>GAMING</span><b>✦</b>
-          <span>LAKEFRONT HANGS</span><b>✦</b>
-          <span>ART & MAKING</span><b>✦</b>
-          <span>FOOD ADVENTURES</span><b>✦</b>
-          <span>OUTDOORS</span><b>✦</b>
-          <span>GOOD CONVERSATION</span><b>✦</b>
-        </div>
-      </div>
-
-      <section className="section how" id="how-it-works">
-        <div className="section-heading">
-          <p className="eyebrow">Build it with us</p>
-          <h2>The community begins before the doors open.</h2>
+      <section className="story-home-hero">
+        <div className="story-home-copy">
+          <p className="eyebrow"><span className="eyebrow-dot" />Cleveland born · Friendship first</p>
+          <h1>Find Your<br /><span>Smoke Circle.</span></h1>
           <p>
-            This is your chance to influence a friendship-first platform from
-            its earliest days—not arrive after someone else has defined it.
+            ReeferBudz is being built for cannabis-friendly adults who want
+            genuine friends, shared interests, and a community that feels like
+            their own.
           </p>
-        </div>
-        <div className="connection-trail" aria-hidden="true">
-          <span />
-          <span />
-          <span />
-        </div>
-        <div className="steps">
-          {steps.map((step) => (
-            <article className="step" key={step.number}>
-              <div className="step-number">{step.number}</div>
-              <h3>{step.title}</h3>
-              <p>{step.copy}</p>
-              <span className="step-arrow" aria-hidden="true">↗</span>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className="manifesto-break" aria-label="What makes ReeferBudz different">
-        <span>FRIENDSHIP FIRST.</span>
-        <span>NO SALES.</span>
-        <strong>BUILT TOGETHER.</strong>
-      </section>
-
-      <section className="community-section" id="community">
-        <div className="community-art">
-          <div className="orbit-label">WHAT WE COULD BUILD TOGETHER</div>
-          <div className="profile-card profile-one">
-            <div className="profile-avatar avatar-orange">01</div>
-            <div><strong>Interest-led discovery</strong><span>Find common ground before saying hello</span></div>
-            <b>IDEA</b>
+          <div className="story-actions">
+            <a className="button button-primary" href="#join">Become a Founding Bud <span aria-hidden="true">→</span></a>
+            <a className="story-text-link" href="/how-it-works">See how we’re building it</a>
           </div>
-          <div className="profile-card profile-two">
-            <div className="profile-avatar avatar-lime">02</div>
-            <div><strong>Community-made circles</strong><span>Local groups shaped by the people inside them</span></div>
-            <b>IDEA</b>
-          </div>
-          <div className="circle-card circle-card-one">
-            <div className="circle-icon">
-              <Image src="/brand/icons/outdoor-setting.png" alt="" width={64} height={64} unoptimized />
-            </div>
-            <div>
-              <strong>Lakefront Hangouts</strong>
-              <span>Future circle idea · Outdoors</span>
-            </div>
-          </div>
-          <div className="circle-card circle-card-two">
-            <div className="circle-icon circle-icon-type">♫</div>
-            <div>
-              <strong>Vinyl & Vibes</strong>
-              <span>Future circle idea · Music</span>
-            </div>
-          </div>
-          <div className="circle-card circle-card-three">
-            <div className="circle-icon">
-              <Image src="/brand/icons/smoke-circle.png" alt="" width={64} height={64} unoptimized />
-            </div>
-            <div>
-              <strong>Creative Budz</strong>
-              <span>Future circle idea · Art and making</span>
-            </div>
-          </div>
+          <small>Early access · Adults 21+ · No cannabis sales</small>
         </div>
-        <div className="community-copy">
-          <p className="eyebrow">A preview, not a promise</p>
-          <h2>Imagine what your circle could become.</h2>
-          <p>
-            These are community possibilities—not fake members or invented
-            activity. Founding Budz will help decide which experiences matter
-            most and what the first Smoke Circles should become.
-          </p>
-          <ul>
-            {communityPoints.map((point) => (
-              <li key={point}><span aria-hidden="true">✓</span>{point}</li>
-            ))}
-          </ul>
-          <a className="inline-link" href="#join">
-            Help shape the first circles <span aria-hidden="true">→</span>
-          </a>
-        </div>
-      </section>
-
-      <section className="safety-section" id="safety">
-        <div className="safety-mark" aria-hidden="true">
+        <div className="story-home-mascots">
+          <div className="story-sun" aria-hidden="true" />
           <Image
-            src="/brand/reeferbudz-emblem.png"
-            alt=""
-            width={512}
-            height={512}
+            src="/brand/reeferbudz-mascots.png"
+            alt="The two friendly ReeferBudz mascots"
+            width={1024}
+            height={682}
+            priority
             unoptimized
           />
-        </div>
-        <div className="safety-copy">
-          <p className="eyebrow eyebrow-light">The green-light standard</p>
-          <h2>Meet boldly.<br />Connect carefully.</h2>
-          <p>
-            Founding the community does not mean compromising safety. Age
-            requirements, privacy choices, community rules, and reporting tools
-            are part of the foundation.
-          </p>
-          <a href="#safety-center">Visit the Safety Center <span aria-hidden="true">→</span></a>
-        </div>
-        <div className="safety-points">
-          <div><b>01</b><strong>21+</strong><span>Adults-only community</span></div>
-          <div><b>02</b><strong>Private</strong><span>You control what others see</span></div>
-          <div><b>03</b><strong>Protected</strong><span>Block and report anytime</span></div>
+          <span className="story-pin story-pin-one">Cleveland roots</span>
+          <span className="story-pin story-pin-two">Built together</span>
         </div>
       </section>
 
-      <section className="story-banner" id="join">
+      <div className="story-interest-line" aria-label="Community interests">
+        <span>Music</span><b>✦</b><span>Gaming</span><b>✦</b><span>Outdoors</span><b>✦</b>
+        <span>Art</span><b>✦</b><span>Food</span><b>✦</b><span>Good conversation</span>
+      </div>
+
+      <section className="story-problem" id="story">
+        <p className="story-section-number">01 / WHY</p>
+        <div>
+          <p className="eyebrow">The reason ReeferBudz exists</p>
+          <h2>Finding cannabis-friendly people should not feel this difficult.</h2>
+        </div>
+        <div className="story-problem-copy">
+          <p>
+            Dating apps are built around romance. General social networks make
+            it hard to know who shares your lifestyle. And many adults simply
+            do not have a comfortable way to meet nearby people who understand.
+          </p>
+          <p className="story-pullquote">
+            ReeferBudz is not another feed to scroll. It is a way to find common
+            ground—and eventually turn it into real friendship.
+          </p>
+        </div>
+      </section>
+
+      <section className="story-vision" id="vision">
+        <div className="story-vision-copy">
+          <p className="story-section-number">02 / THE VISION</p>
+          <p className="eyebrow">Picture your future circle</p>
+          <h2>A place to belong before there is even a plan.</h2>
+          <p>
+            Music nights. Lakefront hangs. Gaming sessions. Art days. Food
+            adventures. Quiet conversation. Smoke Circles will grow around the
+            things people already love—not around pressure to perform.
+          </p>
+        </div>
+        <div className="story-interest-cloud" aria-label="Possible future Smoke Circle interests">
+          <span className="cloud-big">Live music</span>
+          <span>Hiking</span>
+          <span className="cloud-orange">Gaming</span>
+          <span>Food</span>
+          <span className="cloud-big cloud-lime">Art & making</span>
+          <span>Movies</span>
+          <span>Lakefront days</span>
+          <span className="cloud-orange">Good conversation</span>
+        </div>
+      </section>
+
+      <section className="story-founding">
+        <div className="story-founding-intro">
+          <p className="story-section-number">03 / FOUNDING BUDZ</p>
+          <p className="eyebrow">The community starts with you</p>
+          <h2>Help define it before the doors open.</h2>
+          <p>
+            We will not pretend ReeferBudz already has members, activity, or
+            established Circles. Early supporters can help shape what the first
+            real community becomes.
+          </p>
+        </div>
+        <ol className="story-founding-path">
+          <li><b>1</b><span><strong>Join early access</strong>Tell us you want to be part of the first group.</span></li>
+          <li><b>2</b><span><strong>Share what matters</strong>Help guide interests, safety expectations, and Circle ideas.</span></li>
+          <li><b>3</b><span><strong>Build with us</strong>Receive an invitation when the first community experience is ready.</span></li>
+        </ol>
+      </section>
+
+      <section className="story-trust" id="trust">
+        <div>
+          <p className="story-section-number">04 / TRUST</p>
+          <p className="eyebrow">A safe foundation</p>
+          <h2>Community only works when people feel protected.</h2>
+        </div>
+        <ul>
+          <li><strong>21+</strong><span>Created exclusively for adults</span></li>
+          <li><strong>Privacy</strong><span>You decide what others can see</span></li>
+          <li><strong>No sales</strong><span>No cannabis transactions or delivery</span></li>
+          <li><strong>Controls</strong><span>Reporting and blocking are foundational</span></li>
+        </ul>
+      </section>
+
+      <section className="story-banner story-home-closing" id="join">
         <div className="story-banner-copy">
           <p className="eyebrow eyebrow-story">Founding Budz wanted</p>
           <h2>Pull up a chair.<br />Help build the circle.</h2>
-          <p>
-            Join early access and be among the first adults invited to help
-            shape the ReeferBudz community.
-          </p>
-          <a className="button button-primary" href="#create-account">
-            Join the Founding Budz <span aria-hidden="true">→</span>
-          </a>
+          <p>Join early access and help shape the community before its first doors open.</p>
+          <a className="button button-primary" href="#early-access">Join the Founding Budz <span aria-hidden="true">→</span></a>
         </div>
       </section>
 
       <footer>
         <div className="footer-brand">
-          <Image
-            src="/brand/reeferbudz-primary-logo.png"
-            alt="ReeferBudz"
-            width={360}
-            height={244}
-            unoptimized
-          />
+          <Image src="/brand/reeferbudz-primary-logo.png" alt="ReeferBudz" width={360} height={244} unoptimized />
           <p>Find Your Smoke Circle.</p>
         </div>
         <div className="footer-links">
-          <div>
-            <strong>Explore</strong>
-            <a href="/how-it-works">How It Works</a>
-            <a href="#community">Smoke Circles</a>
-            <a href="#safety">Safety</a>
-          </div>
-          <div>
-            <strong>Company</strong>
-            <a href="#community">About</a>
-            <a href="#guidelines">Community Guidelines</a>
-            <a href="#contact">Contact</a>
-          </div>
-          <div>
-            <strong>Legal</strong>
-            <a href="#privacy">Privacy</a>
-            <a href="#terms">Terms</a>
-            <a href="#accessibility">Accessibility</a>
-          </div>
+          <div><strong>Explore</strong><a href="/how-it-works">How It Works</a><a href="#vision">The Vision</a><a href="#trust">Safety</a></div>
+          <div><strong>Company</strong><a href="#story">Our Story</a><a href="#guidelines">Community Guidelines</a><a href="#contact">Contact</a></div>
+          <div><strong>Legal</strong><a href="#privacy">Privacy</a><a href="#terms">Terms</a><a href="#accessibility">Accessibility</a></div>
         </div>
-        <div className="footer-bottom">
-          <span>© 2026 ReeferBudz™</span>
-          <span>For adults 21+. No cannabis sales or transactions.</span>
-        </div>
+        <div className="footer-bottom"><span>© 2026 ReeferBudz™</span><span>For adults 21+. No cannabis sales or transactions.</span></div>
       </footer>
     </main>
   );
