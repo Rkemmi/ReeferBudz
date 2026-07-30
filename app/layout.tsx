@@ -13,16 +13,18 @@ export const metadata: Metadata = {
     description:
       "Friendship and community for cannabis-friendly adults 21+.",
     type: "website",
+    images: ["/opengraph-image.png"],
   },
   twitter: {
     card: "summary_large_image",
     title: "ReeferBudz | Find Your Smoke Circle",
     description:
       "Friendship and community for cannabis-friendly adults 21+.",
+    images: ["/opengraph-image.png"],
   },
   icons: {
-    icon: "/brand/reeferbudz-emblem.png",
-    shortcut: "/brand/reeferbudz-emblem.png",
+    icon: "/brand/reeferbudz-emblem.svg",
+    shortcut: "/brand/reeferbudz-emblem.svg",
   },
 };
 
