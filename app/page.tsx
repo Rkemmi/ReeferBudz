@@ -56,7 +56,7 @@ export default function Home() {
             unoptimized
           />
           <span className="story-pin story-pin-one">Cleveland roots</span>
-          <span className="story-pin story-pin-two">Built together</span>
+          <span className="story-pin story-pin-two">Friendship · Community · 21+</span>
         </div>
       </section>
 
