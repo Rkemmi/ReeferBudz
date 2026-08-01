@@ -1531,3 +1531,251 @@ footer {
     transition: none;
   }
 }
+
+/* August visual direction: a bolder, warmer ReeferBudz world. */
+body {
+  background:
+    radial-gradient(circle at 8% 18%, rgb(155 226 59 / 10%) 0 9rem, transparent 9.1rem),
+    var(--rb-background);
+}
+
+.site-header {
+  border-bottom: 3px solid var(--rb-brand-forest);
+  box-shadow: 0 8px 0 rgb(18 56 43 / 8%);
+}
+
+.button {
+  box-shadow: 4px 5px 0 var(--rb-brand-forest);
+}
+
+.button:hover {
+  box-shadow: 2px 3px 0 var(--rb-brand-forest);
+  transform: translate(2px, 2px);
+}
+
+.home-hero {
+  background:
+    radial-gradient(circle at 81% 42%, var(--rb-brand-gold) 0 15rem, transparent 15.1rem),
+    linear-gradient(115deg, #f7faef 0 54%, #dff5be 54% 100%);
+  border-bottom: 3px solid var(--rb-brand-forest);
+  max-width: none;
+  min-height: 46rem;
+  padding-left: clamp(1.5rem, 8vw, 9rem);
+  padding-right: clamp(1.5rem, 8vw, 9rem);
+  position: relative;
+}
+
+.home-hero::before {
+  color: var(--rb-brand-lake-blue);
+  content: "CLEVELAND BORN  •  FRIENDSHIP FIRST  •  21+";
+  font-size: 0.72rem;
+  font-weight: 900;
+  left: clamp(1.5rem, 3vw, 3rem);
+  letter-spacing: 0.18em;
+  position: absolute;
+  top: 50%;
+  transform: rotate(-90deg) translateX(-50%);
+  transform-origin: left top;
+}
+
+.home-hero h1 {
+  font-size: clamp(3.6rem, 7vw, 6.75rem);
+  line-height: 0.88;
+  max-width: 48rem;
+  text-shadow: 3px 3px 0 rgb(155 226 59 / 25%);
+}
+
+.home-hero h1 span {
+  color: var(--rb-brand-lake-blue);
+  display: inline-block;
+  transform: rotate(-2deg);
+}
+
+.hero-art {
+  background: var(--rb-brand-forest);
+  border: 4px solid var(--rb-brand-forest);
+  border-radius: 42% 58% 48% 52% / 55% 39% 61% 45%;
+  box-shadow: 18px 18px 0 var(--rb-brand-lake-blue);
+  position: relative;
+  transform: rotate(2deg);
+}
+
+.hero-art::after {
+  background: var(--rb-brand-leaf);
+  border: 3px solid var(--rb-brand-forest);
+  border-radius: 999px;
+  bottom: -1rem;
+  color: var(--rb-brand-forest);
+  content: "THE BUDZ ARE READY ✦";
+  font-size: 0.78rem;
+  font-weight: 900;
+  left: 50%;
+  letter-spacing: 0.09em;
+  padding: 0.65rem 1.1rem;
+  position: absolute;
+  transform: translateX(-50%) rotate(-3deg);
+  white-space: nowrap;
+}
+
+.value-strip {
+  border-bottom: 3px solid var(--rb-brand-forest);
+  font-size: 1.05rem;
+  letter-spacing: 0.03em;
+}
+
+.value-strip b { color: var(--rb-brand-leaf); }
+
+.split-section {
+  position: relative;
+}
+
+.split-section::before {
+  background: var(--rb-brand-gold);
+  border: 3px solid var(--rb-brand-forest);
+  border-radius: 50%;
+  content: "✦";
+  display: grid;
+  font-size: 1.5rem;
+  height: 3.5rem;
+  place-items: center;
+  position: absolute;
+  right: 5%;
+  top: 16%;
+  transform: rotate(9deg);
+  width: 3.5rem;
+}
+
+.feature-section,
+.steps-section,
+.safety-principles {
+  background:
+    linear-gradient(135deg, rgb(155 226 59 / 12%) 25%, transparent 25%) 0 0 / 2rem 2rem,
+    #edf4ef;
+  border-block: 3px solid var(--rb-brand-forest);
+}
+
+.card-grid article,
+.safety-grid article,
+.contact-grid article,
+.perk-grid article {
+  border: 3px solid var(--rb-brand-forest);
+  border-radius: 1.5rem 0.5rem 1.5rem 0.5rem;
+  box-shadow: 7px 7px 0 var(--rb-brand-lake-blue);
+  transition: transform 160ms ease;
+}
+
+.card-grid article:nth-child(2n),
+.safety-grid article:nth-child(2n),
+.contact-grid article:nth-child(2n) { box-shadow-color: var(--rb-brand-gold); }
+
+.card-grid article:hover,
+.safety-grid article:hover,
+.contact-grid article:hover { transform: translateY(-5px) rotate(-0.5deg); }
+
+.page-hero {
+  background:
+    radial-gradient(circle at 85% 25%, var(--rb-brand-gold) 0 6rem, transparent 6.1rem),
+    linear-gradient(120deg, #eff7e4, #dceff5);
+  border-bottom: 3px solid var(--rb-brand-forest);
+  position: relative;
+}
+
+.page-hero h1 {
+  font-size: clamp(3rem, 6vw, 5.75rem);
+  line-height: 0.98;
+}
+
+.closing-banner {
+  background: #08271e;
+  display: block;
+  min-height: 38rem;
+  padding: 0;
+  position: relative;
+}
+
+.closing-banner > div:first-child {
+  align-items: flex-start;
+  background: linear-gradient(90deg, rgb(6 32 24 / 98%) 0%, rgb(6 32 24 / 88%) 68%, transparent 100%);
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  left: 0;
+  max-width: 57%;
+  padding: clamp(3rem, 7vw, 7rem);
+  position: absolute;
+  top: 0;
+  z-index: 4;
+}
+
+.closing-banner h2 {
+  font-size: clamp(3rem, 5.5vw, 6rem);
+  line-height: 0.93;
+  text-shadow: 3px 3px 0 rgb(47 111 143 / 35%);
+}
+
+.closing-banner p:not(.eyebrow) { max-width: 38rem; }
+
+.banner-scene {
+  aspect-ratio: auto;
+  border: 0;
+  border-radius: 0;
+  inset: 0;
+  min-height: 38rem;
+  position: absolute;
+}
+
+.banner-scene::after { display: none; }
+
+.banner-scene img {
+  height: 100%;
+  inset: 0;
+  max-height: none;
+  object-fit: cover;
+  position: absolute;
+  transform: none;
+  width: 100%;
+}
+
+.scene-label {
+  align-items: center;
+  background: var(--rb-brand-leaf);
+  border: 3px solid var(--rb-brand-forest);
+  box-shadow: 4px 4px 0 var(--rb-brand-gold);
+  display: flex;
+  font-size: 0.76rem;
+  gap: 0.4rem;
+  left: auto;
+  letter-spacing: 0.06em;
+  right: 2rem;
+  text-transform: uppercase;
+  top: 2rem;
+}
+
+.scene-prop { display: none; }
+
+footer { border-top: 6px solid var(--rb-brand-leaf); }
+
+@media (max-width: 60rem) {
+  .home-hero::before { display: none; }
+  .home-hero h1 { font-size: clamp(3.5rem, 11vw, 6rem); }
+  .closing-banner > div:first-child { max-width: 68%; }
+}
+
+@media (max-width: 47.99rem) {
+  .home-hero { padding-top: 4.5rem; }
+  .hero-art { box-shadow: 9px 9px 0 var(--rb-brand-lake-blue); }
+  .split-section::before { display: none; }
+  .closing-banner { min-height: 48rem; }
+  .banner-scene { min-height: 48rem; }
+  .banner-scene img { object-position: 66% center; }
+  .closing-banner > div:first-child {
+    align-items: center;
+    background: linear-gradient(0deg, rgb(6 32 24 / 99%) 0%, rgb(6 32 24 / 93%) 62%, transparent 100%);
+    max-width: none;
+    padding: 18rem 1.5rem 3rem;
+    text-align: center;
+  }
+  .closing-banner h2 { font-size: clamp(2.6rem, 12vw, 4rem); }
+  .scene-label { right: 1rem; top: 1rem; }
+}

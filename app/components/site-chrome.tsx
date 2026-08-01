@@ -10,6 +10,20 @@ const navigation = [
 
 export type NavigationKey = (typeof navigation)[number]["key"];
 
+const sceneArtwork = {
+  gathering: "/brand/scenes/lakefront-circle-v2.png",
+  path: "/brand/scenes/discovery-trail-v2.png",
+  safety: "/brand/scenes/safety-path-v2.png",
+  story: "/brand/scenes/community-clubhouse-v2.png",
+  guidelines: "/brand/scenes/safety-path-v2.png",
+  contact: "/brand/scenes/community-clubhouse-v2.png",
+  privacy: "/brand/scenes/safety-path-v2.png",
+  terms: "/brand/scenes/discovery-trail-v2.png",
+  accessibility: "/brand/scenes/discovery-trail-v2.png",
+  signup: "/brand/scenes/community-clubhouse-v2.png",
+  celebration: "/brand/scenes/lakefront-circle-v2.png",
+} as const;
+
 export function AgeBar() {
   return (
     <div className="age-bar">
@@ -141,16 +155,13 @@ export function ClosingBanner({
         </Link>
       </div>
       <div className="banner-scene">
-        <span className="scene-label">{sceneLabel}</span>
-        <span className="scene-prop scene-prop--one" aria-hidden="true" />
-        <span className="scene-prop scene-prop--two" aria-hidden="true" />
-        <span className="scene-prop scene-prop--three" aria-hidden="true" />
         <Image
-          src="/brand/reeferbudz-mascots.svg"
+          src={sceneArtwork[scene]}
           alt={mascotAlt}
-          width={1024}
-          height={682}
+          fill
+          sizes="(max-width: 768px) 100vw, 58vw"
         />
+        <span className="scene-label"><b aria-hidden="true">✦</b>{sceneLabel}</span>
       </div>
     </section>
   );
