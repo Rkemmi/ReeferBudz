@@ -74,6 +74,9 @@ export default function Home() {
         eyebrow="Founding Budz wanted"
         title="Pull up a chair. Your circle is waiting."
         description="Join early access and help shape the community before its first doors open."
+        scene="gathering"
+        sceneLabel="Lakefront circle setup"
+        mascotAlt="The ReeferBudz mascots setting up a welcoming lakefront community circle"
       />
     </PageShell>
   );

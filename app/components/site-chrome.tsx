@@ -115,17 +115,23 @@ export function ClosingBanner({
   eyebrow,
   title,
   description,
+  scene = "gathering",
+  sceneLabel = "Community circle",
+  mascotAlt = "The ReeferBudz mascots welcoming people into the community",
   actionLabel = "Join Early Access",
   actionHref = "/early-access",
 }: {
   eyebrow: string;
   title: string;
   description: string;
+  scene?: "gathering" | "path" | "safety" | "story" | "guidelines" | "contact" | "privacy" | "terms" | "accessibility" | "signup" | "celebration";
+  sceneLabel?: string;
+  mascotAlt?: string;
   actionLabel?: string;
   actionHref?: string;
 }) {
   return (
-    <section className="closing-banner">
+    <section className={`closing-banner closing-banner--${scene}`}>
       <div>
         <p className="eyebrow eyebrow-light">{eyebrow}</p>
         <h2>{title}</h2>
@@ -134,12 +140,18 @@ export function ClosingBanner({
           {actionLabel} <span aria-hidden="true">→</span>
         </Link>
       </div>
-      <Image
-        src="/brand/reeferbudz-mascots.svg"
-        alt="The canonical ReeferBudz high-five mascot pair"
-        width={1024}
-        height={682}
-      />
+      <div className="banner-scene">
+        <span className="scene-label">{sceneLabel}</span>
+        <span className="scene-prop scene-prop--one" aria-hidden="true" />
+        <span className="scene-prop scene-prop--two" aria-hidden="true" />
+        <span className="scene-prop scene-prop--three" aria-hidden="true" />
+        <Image
+          src="/brand/reeferbudz-mascots.svg"
+          alt={mascotAlt}
+          width={1024}
+          height={682}
+        />
+      </div>
     </section>
   );
 }

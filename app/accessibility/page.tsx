@@ -9,6 +9,14 @@ export default function Accessibility() {
       eyebrow="Accessibility"
       title="The circle should be easier for everyone to enter."
       intro="ReeferBudz is committed to building an inclusive website and product experience for people with disabilities."
+      banner={{
+        eyebrow: "Everyone belongs",
+        title: "More ways in. More people in the circle.",
+        description: "Help us notice barriers and keep improving how the community welcomes everyone.",
+        scene: "accessibility",
+        sceneLabel: "Building an easier path",
+        mascotAlt: "The ReeferBudz mascots making the path into the community easier to use",
+      }}
       sections={[
         { title: "Our approach", body: <p>We aim to support keyboard navigation, visible focus states, meaningful headings, descriptive text alternatives, sufficient color contrast, responsive layouts, zoom, and reduced-motion preferences.</p> },
         { title: "Ongoing work", body: <p>Accessibility is a continuing practice. As community features are designed, we will test core journeys and include accessibility in product review rather than treating it as a final check.</p> },

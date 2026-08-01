@@ -12,7 +12,10 @@ const routes = [
   ["/privacy", "Clear choices"],
   ["/terms", "Terms for using"],
   ["/accessibility", "easier for everyone"],
-  ["/early-access", "Help build the circle"],
+  ["/early-access", "Your future circle"],
+  ["/signup", "Your circle is forming"],
+  ["/signup/emergency-contact", "Choose someone"],
+  ["/welcome", "Your seat is waiting"],
 ];
 
 test("all public ReeferBudz routes contain useful page content", async () => {
@@ -29,7 +32,10 @@ test("shared chrome links only to real public destinations", async () => {
     new URL("../app/components/site-chrome.tsx", import.meta.url),
     "utf8",
   );
-  for (const [route] of routes.slice(1)) {
+  const chromeRoutes = routes
+    .slice(1, 10)
+    .map(([route]) => route);
+  for (const route of chromeRoutes) {
     assert.match(chrome, new RegExp(`href=["']${route.replaceAll("-", "\\-")}`));
   }
   assert.doesNotMatch(chrome, /href=["']\/?#(?:privacy|terms|contact|story|guidelines)/);
@@ -43,6 +49,8 @@ test("brand implementation uses approved tokens, assets, and weights", async () 
   ]);
 
   assert.match(css, /--rb-brand-forest:/);
+  assert.match(css, /--rb-brand-lake-blue:\s*#2f6f8f/);
+  assert.doesNotMatch(css, /orange|#ff6b1a/i);
   assert.match(css, /--rb-weight-extrabold:\s*800/);
   assert.doesNotMatch(css, /\b(?:linear|radial|conic)-gradient\(/);
   assert.doesNotMatch(css, /font-weight:\s*(?:900|1000)\b/);

@@ -11,11 +11,20 @@ export function ContentPage({
   title,
   intro,
   sections,
+  banner,
 }: {
   eyebrow: string;
   title: string;
   intro: string;
   sections: ContentSection[];
+  banner?: {
+    eyebrow: string;
+    title: string;
+    description: string;
+    scene: "story" | "guidelines" | "privacy" | "terms" | "accessibility";
+    sceneLabel: string;
+    mascotAlt: string;
+  };
 }) {
   return (
     <PageShell>
@@ -29,9 +38,12 @@ export function ContentPage({
         ))}
       </div>
       <ClosingBanner
-        eyebrow="Find your people"
-        title="A better circle starts with a thoughtful first hello."
-        description="Join the Founding Budz and help us build a safer, friendship-first community."
+        eyebrow={banner?.eyebrow ?? "Find your people"}
+        title={banner?.title ?? "A better circle starts with a thoughtful first hello."}
+        description={banner?.description ?? "Join the Founding Budz and help us build a safer, friendship-first community."}
+        scene={banner?.scene}
+        sceneLabel={banner?.sceneLabel}
+        mascotAlt={banner?.mascotAlt}
       />
     </PageShell>
   );

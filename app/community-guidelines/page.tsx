@@ -9,6 +9,14 @@ export default function CommunityGuidelines() {
       eyebrow="Community Guidelines"
       title="Make the circle safer, kinder, and worth returning to."
       intro="These principles set the expectation for every profile, message, group, and in-person hangout connected through ReeferBudz."
+      banner={{
+        eyebrow: "Keep the circle kind",
+        title: "Good vibes need good boundaries.",
+        description: "Bring respect, honesty, and care to every new connection.",
+        scene: "guidelines",
+        sceneLabel: "Community promise board",
+        mascotAlt: "The ReeferBudz mascots pinning kind community promises to a bulletin board",
+      }}
       sections={[
         { title: "Respect consent and boundaries", body: <p>Do not pressure anyone for replies, personal information, photos, dates, substances, transportation, or in-person contact. Accept “no,” silence, blocks, and changed plans without retaliation.</p> },
         { title: "Keep it friendship-first", body: <p>ReeferBudz is not a dating or hookup service. Sexual harassment, explicit content, unwanted flirting, and deceptive intentions are prohibited.</p> },

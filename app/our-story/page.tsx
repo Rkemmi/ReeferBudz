@@ -9,6 +9,14 @@ export default function OurStory() {
       eyebrow="Our Story"
       title="Cleveland roots. A simple human need."
       intro="ReeferBudz began with a belief that cannabis-friendly adults deserve an easier, more comfortable way to find genuine friendship."
+      banner={{
+        eyebrow: "Made in Cleveland",
+        title: "Every good circle has an origin story.",
+        description: "Join the Founding Budz and help write the next chapter of a community built for real friendship.",
+        scene: "story",
+        sceneLabel: "Scrapbook day",
+        mascotAlt: "The ReeferBudz mascots looking through a community scrapbook together",
+      }}
       sections={[
         {
           title: "Why ReeferBudz exists",

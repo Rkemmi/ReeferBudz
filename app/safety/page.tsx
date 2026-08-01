@@ -73,6 +73,9 @@ export default function Safety() {
         eyebrow="Trust is built together"
         title="Your boundaries belong to you."
         description="Help us shape safety tools that support real people in real situations."
+        scene="safety"
+        sceneLabel="Privacy · Check-in · Support"
+        mascotAlt="The ReeferBudz mascots helping each other through safety checkpoints"
       />
     </PageShell>
   );

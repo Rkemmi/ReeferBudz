@@ -68,6 +68,9 @@ export default function HowItWorks() {
         eyebrow="The circle is still forming"
         title="There is room for you in it."
         description="Become a Founding Bud and help create the community you would actually join."
+        scene="path"
+        sceneLabel="Profile → Connection → Circle"
+        mascotAlt="The ReeferBudz mascots following a playful path toward a new community circle"
       />
     </PageShell>
   );

@@ -9,6 +9,14 @@ export default function Terms() {
       eyebrow="Terms"
       title="Terms for using the public ReeferBudz website."
       intro="These website terms apply to this public information and early-access experience. Last updated July 30, 2026."
+      banner={{
+        eyebrow: "The shared ground rules",
+        title: "Clear expectations make room for easy connection.",
+        description: "Know the boundaries, bring your whole self, and help the circle stay welcoming.",
+        scene: "terms",
+        sceneLabel: "Trail map check",
+        mascotAlt: "The ReeferBudz mascots reviewing the community trail map and its ground rules",
+      }}
       sections={[
         { title: "Eligibility", body: <p>You must be at least 21 years old to use ReeferBudz or join early access. By submitting the early-access form, you confirm that you meet this requirement.</p> },
         { title: "Early access", body: <p>Joining the list does not create an account, guarantee admission, promise a launch date, or grant access to unreleased features. We may change, pause, or end the program.</p> },

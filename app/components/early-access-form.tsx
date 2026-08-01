@@ -47,7 +47,7 @@ export function EarlyAccessForm() {
         <input name="location" autoComplete="address-level2" maxLength={120} />
       </label>
       <fieldset>
-        <legend>What would you most like to find?</legend>
+        <legend>What sounds most like your kind of circle?</legend>
         <label className="check-label"><input type="checkbox" name="interests" value="local-friends" /> Local friends</label>
         <label className="check-label"><input type="checkbox" name="interests" value="interest-groups" /> Interest-based circles</label>
         <label className="check-label"><input type="checkbox" name="interests" value="events" /> Community events</label>
@@ -57,7 +57,7 @@ export function EarlyAccessForm() {
         I confirm that I am at least 21 years old and agree to receive early-access updates.
       </label>
       <button className="button" type="submit" disabled={status === "sending"}>
-        {status === "sending" ? "Saving your spot…" : "Save my spot"}
+        {status === "sending" ? "Saving your spot…" : "Count me in →"}
       </button>
       <p className={`form-status ${status}`} role="status" aria-live="polite">
         {message}

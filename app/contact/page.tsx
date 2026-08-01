@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { PageHero, PageShell } from "../components/site-chrome";
+import { ClosingBanner, PageHero, PageShell } from "../components/site-chrome";
 
 export const metadata: Metadata = { title: "Contact" };
 
@@ -22,6 +22,14 @@ export default function Contact() {
         <p>ReeferBudz does not provide emergency services. If you or someone else is in immediate danger, contact your local emergency services.</p>
         <Link className="button button-outline" href="/safety">Review Safety guidance</Link>
       </section>
+      <ClosingBanner
+        eyebrow="Pass the note"
+        title="Say hello. We’re listening."
+        description="Questions, ideas, and thoughtful feedback all help shape a better community."
+        scene="contact"
+        sceneLabel="Mailbox meetup"
+        mascotAlt="The ReeferBudz mascots exchanging friendly notes at a community mailbox"
+      />
     </PageShell>
   );
 }
