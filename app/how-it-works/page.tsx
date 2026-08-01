@@ -34,6 +34,8 @@ export default function HowItWorks() {
         eyebrow="Your circle starts here"
         title="Come as you are. Find who gets you."
         intro="ReeferBudz is building a friendship-first community around the things you already enjoy—and the people you have not met yet."
+        tone="path"
+        accent="Follow the connection trail"
       />
       <section className="steps-section">
         <div className="section-heading">

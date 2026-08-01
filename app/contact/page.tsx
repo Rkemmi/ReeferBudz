@@ -11,6 +11,8 @@ export default function Contact() {
         eyebrow="Contact"
         title="Let’s keep the conversation open."
         intro="Choose the destination that best matches what you need. We’ll expand these support options as early access grows."
+        tone="contact"
+        accent="Pass the note"
       />
       <section className="contact-grid">
         <article><h2>General questions</h2><p>Questions about ReeferBudz, partnerships, or the Founding Budz program.</p><a className="text-action" href="mailto:hello@reeferbudz.com">hello@reeferbudz.com</a></article>

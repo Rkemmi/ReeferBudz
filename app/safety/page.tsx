@@ -40,6 +40,8 @@ export default function Safety() {
         eyebrow="Safety Center"
         title="Safer connections are designed before the first hello."
         intro="Safety is a shared practice supported by clear boundaries, practical tools, transparent limits, and community accountability."
+        tone="safety"
+        accent="Prepared together"
       />
       <section className="safety-principles">
         <div className="section-heading">

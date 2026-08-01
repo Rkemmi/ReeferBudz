@@ -28,7 +28,7 @@ export function ContentPage({
 }) {
   return (
     <PageShell>
-      <PageHero eyebrow={eyebrow} title={title} intro={intro} />
+      <PageHero eyebrow={eyebrow} title={title} intro={intro} tone={banner?.scene} accent={banner?.sceneLabel} />
       <div className="article-layout">
         {sections.map((section) => (
           <section className="article-section" key={section.title}>

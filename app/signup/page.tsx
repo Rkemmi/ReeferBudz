@@ -62,6 +62,9 @@ export default function Signup() {
         eyebrow="One step closer"
         title="Account details done. High five."
         description="Next, choose the trusted emergency contact who will be part of your personal safety plan."
+        scene="signup"
+        sceneLabel="Making your place in the circle"
+        mascotAlt="The ReeferBudz mascots setting up a new member's interest table"
         actionLabel="Continue your signup"
         actionHref="#signup-form"
       />

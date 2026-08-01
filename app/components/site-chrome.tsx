@@ -11,18 +11,22 @@ const navigation = [
 export type NavigationKey = (typeof navigation)[number]["key"];
 
 const sceneArtwork = {
-  gathering: "/brand/scenes/lakefront-circle-v2.png",
-  path: "/brand/scenes/discovery-trail-v2.png",
-  safety: "/brand/scenes/safety-path-v2.png",
-  story: "/brand/scenes/community-clubhouse-v2.png",
-  guidelines: "/brand/scenes/safety-path-v2.png",
-  contact: "/brand/scenes/community-clubhouse-v2.png",
-  privacy: "/brand/scenes/safety-path-v2.png",
-  terms: "/brand/scenes/discovery-trail-v2.png",
-  accessibility: "/brand/scenes/discovery-trail-v2.png",
-  signup: "/brand/scenes/community-clubhouse-v2.png",
-  celebration: "/brand/scenes/lakefront-circle-v2.png",
+  gathering: "/brand/scenes/home-lakefront-v3.png",
+  path: "/brand/scenes/how-it-works-model-v3.png",
+  safety: "/brand/scenes/safety-prep-v3.png",
+  story: "/brand/scenes/our-story-scrapbook-v3.png",
+  guidelines: "/brand/scenes/community-guidelines-circle-v3.png",
+  contact: "/brand/scenes/contact-mailbox-v3.png",
+  privacy: "/brand/scenes/privacy-nook-v3.png",
+  terms: "/brand/scenes/terms-game-night-v3.png",
+  accessibility: "/brand/scenes/accessibility-path-v3.png",
+  early: "/brand/scenes/early-access-door-v3.png",
+  signup: "/brand/scenes/signup-interests-v3.png",
+  emergency: "/brand/scenes/emergency-checkin-v3.png",
+  celebration: "/brand/scenes/welcome-chair-v3.png",
 } as const;
+
+export type SceneKey = keyof typeof sceneArtwork;
 
 export function AgeBar() {
   return (
@@ -109,17 +113,25 @@ export function PageHero({
   eyebrow,
   title,
   intro,
+  tone = "gathering",
+  accent = "A ReeferBudz moment",
 }: {
   eyebrow: string;
   title: string;
   intro: string;
+  tone?: SceneKey;
+  accent?: string;
 }) {
   return (
-    <section className="page-hero">
+    <section className={`page-hero page-hero--${tone}`}>
       <div className="content-narrow">
         <p className="eyebrow">{eyebrow}</p>
         <h1>{title}</h1>
         <p className="hero-lead">{intro}</p>
+      </div>
+      <div className="page-hero-accent" aria-hidden="true">
+        <span>{accent}</span>
+        <Image src="/brand/reeferbudz-mascots.svg" alt="" width={1024} height={682} />
       </div>
     </section>
   );
@@ -138,7 +150,7 @@ export function ClosingBanner({
   eyebrow: string;
   title: string;
   description: string;
-  scene?: "gathering" | "path" | "safety" | "story" | "guidelines" | "contact" | "privacy" | "terms" | "accessibility" | "signup" | "celebration";
+  scene?: SceneKey;
   sceneLabel?: string;
   mascotAlt?: string;
   actionLabel?: string;

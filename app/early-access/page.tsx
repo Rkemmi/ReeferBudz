@@ -98,7 +98,7 @@ export default function EarlyAccess() {
         eyebrow="The door is open"
         title="Your seat in the circle starts here."
         description="Raise your hand now and help give the first ReeferBudz community its personality."
-        scene="signup"
+        scene="early"
         sceneLabel="Welcome gate"
         mascotAlt="The ReeferBudz mascots opening the entrance to the community"
         actionLabel="Save my spot"

@@ -70,6 +70,9 @@ export default function EmergencyContact() {
           eyebrow="Safety is part of belonging"
           title="Someone you trust. A plan you control."
           description="Emergency contacts support future Guardian check-ins and hangout alarms—they never replace emergency services."
+          scene="emergency"
+          sceneLabel="A practical buddy check-in"
+          mascotAlt="The ReeferBudz mascots preparing a calm buddy check-in before an evening walk"
           actionLabel="Finish safety setup"
           actionHref="#emergency-contact-form"
         />
