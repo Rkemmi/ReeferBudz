@@ -12,7 +12,7 @@ const navigation = [
 export type NavigationKey = (typeof navigation)[number]["key"];
 
 const sceneArtwork = {
-  gathering: "/brand/scenes/home-lakefront-v3.png",
+  gathering: "/brand/scenes/home-community-v6.png",
   path: "/brand/scenes/how-it-works-model-v3.png",
   safety: "/brand/scenes/safety-prep-v3.png",
   story: "/brand/scenes/our-story-scrapbook-v3.png",
@@ -28,7 +28,7 @@ const sceneArtwork = {
 } as const;
 
 const mobileSceneArtwork: Partial<Record<SceneKey, string>> = {
-  gathering: "/brand/scenes/home-lakefront-mobile-v5.png",
+  gathering: "/brand/scenes/home-community-mobile-v6.png",
 };
 
 export type SceneKey = keyof typeof sceneArtwork;
