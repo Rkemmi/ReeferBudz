@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { EarlyAccessForm } from "../components/early-access-form";
 import { ClosingBanner, PageShell } from "../components/site-chrome";
+import { StaticImage as Image } from "../components/static-image";
 
 export const metadata: Metadata = {
   title: "Join Early Access",

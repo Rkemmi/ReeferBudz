@@ -1,11 +1,12 @@
-import Image from "next/image";
 import Link from "next/link";
 import type { ReactNode } from "react";
+import { StaticImage as Image } from "./static-image";
 
 const navigation = [
   { href: "/how-it-works", label: "How It Works", key: "how-it-works" },
   { href: "/safety", label: "Safety", key: "safety" },
   { href: "/our-story", label: "Our Story", key: "our-story" },
+  { href: "/shop", label: "Shop", key: "shop" },
 ] as const;
 
 export type NavigationKey = (typeof navigation)[number]["key"];
@@ -25,6 +26,10 @@ const sceneArtwork = {
   emergency: "/brand/scenes/emergency-checkin-v3.png",
   celebration: "/brand/scenes/welcome-chair-v3.png",
 } as const;
+
+const mobileSceneArtwork: Partial<Record<SceneKey, string>> = {
+  gathering: "/brand/scenes/home-lakefront-mobile-v5.png",
+};
 
 export type SceneKey = keyof typeof sceneArtwork;
 
@@ -157,25 +162,40 @@ export function ClosingBanner({
   actionHref?: string;
 }) {
   return (
-    <section className={`closing-banner closing-banner--${scene}`}>
-      <div>
-        <p className="eyebrow eyebrow-light">{eyebrow}</p>
-        <h2>{title}</h2>
-        <p>{description}</p>
-        <Link className="button" href={actionHref}>
-          {actionLabel} <span aria-hidden="true">→</span>
-        </Link>
-      </div>
-      <div className="banner-scene">
-        <Image
-          src={sceneArtwork[scene]}
-          alt={mascotAlt}
-          fill
-          sizes="(max-width: 768px) 100vw, 58vw"
-        />
-        <span className="scene-label"><b aria-hidden="true">✦</b>{sceneLabel}</span>
-      </div>
-    </section>
+    <>
+      <div className="closing-banner-anchor" id="closing-banner" />
+      <section className={`closing-banner closing-banner--${scene}`}>
+        <div>
+          <p className="eyebrow eyebrow-light">{eyebrow}</p>
+          <h2>{title}</h2>
+          <p>{description}</p>
+          <Link className="button" href={actionHref}>
+            {actionLabel} <span aria-hidden="true">→</span>
+          </Link>
+        </div>
+        <div className="banner-scene">
+          <Image
+            className={mobileSceneArtwork[scene] ? "banner-scene-desktop" : undefined}
+            src={sceneArtwork[scene]}
+            alt={mascotAlt}
+            fill
+            priority
+            sizes="(max-width: 768px) 100vw, 58vw"
+          />
+          {mobileSceneArtwork[scene] ? (
+            <Image
+              className="banner-scene-mobile"
+              src={mobileSceneArtwork[scene]}
+              alt={mascotAlt}
+              fill
+              priority
+              sizes="100vw"
+            />
+          ) : null}
+          <span className="scene-label"><b aria-hidden="true">✦</b>{sceneLabel}</span>
+        </div>
+      </section>
+    </>
   );
 }
 
@@ -197,6 +217,7 @@ export function SiteFooter() {
             <Link href="/how-it-works">How It Works</Link>
             <Link href="/safety">Safety</Link>
             <Link href="/early-access">Early Access</Link>
+            <Link href="/shop">Shop</Link>
           </div>
           <div>
             <strong>Community</strong>

@@ -16,6 +16,7 @@ const routes = [
   ["/signup", "Your circle is forming"],
   ["/signup/emergency-contact", "Choose someone"],
   ["/welcome", "Your seat is waiting"],
+  ["/shop", "Founding Budz Drop"],
 ];
 
 test("all public ReeferBudz routes contain useful page content", async () => {
