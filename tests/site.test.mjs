@@ -72,3 +72,20 @@ test("mobile navigation and early-access submission are implemented", async () =
   assert.match(route, /INSERT INTO early_access_signups/);
   assert.match(route, /adultConsent/);
 });
+
+test("sticker pack reservations are persisted without collecting payment", async () => {
+  const [page, form, route, schema] = await Promise.all([
+    readFile(new URL("../app/shop/page.tsx", import.meta.url), "utf8"),
+    readFile(new URL("../app/components/sticker-reservation-form.tsx", import.meta.url), "utf8"),
+    readFile(new URL("../app/api/shop-interest/route.ts", import.meta.url), "utf8"),
+    readFile(new URL("../db/schema.ts", import.meta.url), "utf8"),
+  ]);
+  assert.match(page, /Reserve a \$10 pack/);
+  assert.match(page, /No money today/);
+  assert.match(form, /fetch\(["']\/api\/shop-interest/);
+  assert.match(form, /not a purchase/i);
+  assert.match(route, /INSERT INTO sticker_pack_reservations/);
+  assert.match(route, /adultConsent/);
+  assert.match(schema, /stickerPackReservations/);
+  assert.doesNotMatch(`${page}\n${form}`, /card number|checkout|payment method/i);
+});

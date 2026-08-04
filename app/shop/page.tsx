@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { PageShell } from "../components/site-chrome";
 import { StaticImage as Image } from "../components/static-image";
+import { StickerReservationForm } from "../components/sticker-reservation-form";
 
 export const metadata: Metadata = {
   title: "Support the Circle Shop",
@@ -13,26 +14,10 @@ const products = [
   {
     name: "Starter Sticker Pack",
     type: "Three-piece founding set",
-    price: "$8–$12 planned",
+    price: "$10 planned",
     image: "/shop/find-your-bud-sticker.png",
     alt: "Find Your Bud ReeferBudz sticker",
     note: "Find Your Bud, Support Your Local Budz, and Keep the Spark.",
-  },
-  {
-    name: "Bud Buddies Tee",
-    type: "Friendship-first graphic",
-    price: "$25–$32 planned",
-    image: "/shop/bud-buddies-shirt.png",
-    alt: "Bud Buddies ReeferBudz shirt artwork",
-    note: "A wearable high five for people who believe belonging starts with friendship.",
-  },
-  {
-    name: "Roll With It Tee",
-    type: "Limited launch graphic",
-    price: "$25–$32 planned",
-    image: "/shop/roll-with-it-shirt.png",
-    alt: "Roll With It ReeferBudz shirt artwork",
-    note: "A bold early-community design from the original ReeferBudz art collection.",
   },
 ] as const;
 
@@ -44,12 +29,12 @@ export default function Shop() {
           <p className="eyebrow">Support the Circle Shop</p>
           <h1>Wear the idea.<br /><span>Help build the circle.</span></h1>
           <p className="hero-lead">
-            Every future purchase will help fund the safe, friendship-first
-            ReeferBudz community we are building from Cleveland outward.
+            We’re starting with one affordable three-sticker pack so every
+            early dollar can go back into building the ReeferBudz community.
           </p>
           <div className="hero-actions">
-            <Link className="button" href="#founding-drop">Preview the first drop →</Link>
-            <Link className="text-action" href="/early-access#save-my-spot">Join the drop list</Link>
+            <Link className="button" href="#reserve-a-pack">Reserve a $10 pack →</Link>
+            <Link className="text-action" href="#founding-drop">See what’s included</Link>
           </div>
           <small>Merchandise only · No cannabis · Nothing is being charged today</small>
         </div>
@@ -73,13 +58,13 @@ export default function Shop() {
       <section className="shop-products" id="founding-drop">
         <div className="section-heading">
           <p className="eyebrow">The Founding Budz Drop</p>
-          <h2>Small goods. Real help. Built with personality.</h2>
+          <h2>Three original stickers. One simple first step.</h2>
           <p>
             These are previews from artwork already created for ReeferBudz.
-            Final prices will be confirmed after production and shipping quotes.
+            The planned launch price is $10. Final shipping details will be confirmed after the first production quote.
           </p>
         </div>
-        <div className="product-grid">
+        <div className="product-grid product-grid--single">
           {products.map((product) => (
             <article className="product-card" key={product.name}>
               <div className="product-art">
@@ -91,39 +76,27 @@ export default function Shop() {
                 <h3>{product.name}</h3>
                 <strong>{product.price}</strong>
                 <p>{product.note}</p>
-                <Link href="/early-access#save-my-spot">Tell me when it drops →</Link>
+                <Link href="#reserve-a-pack">Reserve a pack for free →</Link>
               </div>
             </article>
           ))}
         </div>
       </section>
 
-      <section className="founding-box">
-        <div className="founding-box-art">
-          <Image
-            src="/brand/reeferbudz-mascots.svg"
-            alt="The ReeferBudz mascot pair celebrating the Founding Budz Box"
-            width={1024}
-            height={682}
-          />
-          <span>Limited first edition</span>
-        </div>
-        <div className="founding-box-copy">
-          <p className="eyebrow">The big idea</p>
-          <h2>The Founding Budz Box</h2>
+      <section className="sticker-reservation" id="reserve-a-pack">
+        <div className="sticker-reservation-copy">
+          <p className="eyebrow">No money today</p>
+          <h2>Reserve your sticker pack.</h2>
           <p>
-            A numbered first-edition support box for the people who help pull
-            up the first chairs. Planned as a limited preorder—not an auction.
+            Tell us how many packs you would probably buy. We’ll use the total
+            to order the smallest sensible print run and email you before any
+            payment is requested.
           </p>
-          <ul>
-            <li>Three-piece sticker starter pack</li>
-            <li>Limited mascot print</li>
-            <li>Numbered Founding Budz card</li>
-            <li>Exclusive shirt, patch, or launch keepsake</li>
-            <li>A thank-you note from the founder</li>
-          </ul>
-          <div className="box-price"><span>Planned range</span><strong>$55–$85</strong></div>
-          <Link className="button" href="/early-access#save-my-spot">Join the Founding Drop list →</Link>
+          <div className="reservation-price"><strong>$10</strong><span>planned price for all three stickers</span></div>
+        </div>
+        <div className="form-card">
+          <span className="form-sticker">First Drop</span>
+          <StickerReservationForm />
         </div>
       </section>
 
@@ -141,9 +114,9 @@ export default function Shop() {
 
       <section className="shop-cta">
         <p className="eyebrow eyebrow-light">Help light the first spark</p>
-        <h2>Want first notice when the shop opens?</h2>
-        <p>Join early access and choose merchandise as one of your interests.</p>
-        <Link className="button" href="/early-access#save-my-spot">Join the drop list →</Link>
+        <h2>Start small. Keep the spark moving.</h2>
+        <p>Reserve a pack now so the first print run matches real demand.</p>
+        <Link className="button" href="#reserve-a-pack">Reserve my pack—free →</Link>
       </section>
     </PageShell>
   );
