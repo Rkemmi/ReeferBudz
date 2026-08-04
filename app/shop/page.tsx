@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { PageShell } from "../components/site-chrome";
+import { ClosingBanner, PageShell } from "../components/site-chrome";
 import { StaticImage as Image } from "../components/static-image";
 import { StickerReservationForm } from "../components/sticker-reservation-form";
 
@@ -112,12 +112,16 @@ export default function Shop() {
         </div>
       </section>
 
-      <section className="shop-cta">
-        <p className="eyebrow eyebrow-light">Help light the first spark</p>
-        <h2>Start small. Keep the spark moving.</h2>
-        <p>Reserve a pack now so the first print run matches real demand.</p>
-        <Link className="button" href="#reserve-a-pack">Reserve my pack—free →</Link>
-      </section>
+      <ClosingBanner
+        eyebrow="Help light the first spark"
+        title="Start small. Keep the spark moving."
+        description="Reserve a pack now so the first print run matches real demand. Nothing is charged today."
+        scene="gathering"
+        sceneLabel="Built by the Budz"
+        mascotAlt="The two ReeferBudz mascots together beside the lakefront community circle"
+        actionLabel="Reserve my pack—free"
+        actionHref="#reserve-a-pack"
+      />
     </PageShell>
   );
 }
