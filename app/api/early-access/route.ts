@@ -1,4 +1,5 @@
 import { env } from "cloudflare:workers";
+import { acceptsJson, bodyIsTooLarge, cleanText, isValidEmail, json } from "../_shared/request";
 
 type Signup = {
   firstName?: unknown;
@@ -6,27 +7,45 @@ type Signup = {
   location?: unknown;
   interests?: unknown;
   adultConsent?: unknown;
+  website?: unknown;
 };
 
 export async function POST(request: Request) {
-  const data = (await request.json()) as Signup;
-  const firstName = typeof data.firstName === "string" ? data.firstName.trim() : "";
-  const email = typeof data.email === "string" ? data.email.trim().toLowerCase() : "";
-  const location = typeof data.location === "string" ? data.location.trim() : "";
-  const interests = Array.isArray(data.interests)
-    ? data.interests.join(",")
-    : typeof data.interests === "string"
-      ? data.interests
-      : "";
+  if (!acceptsJson(request) || bodyIsTooLarge(request)) {
+    return json({ message: "This request could not be accepted." }, { status: 415 });
+  }
 
-  if (!firstName || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) || data.adultConsent !== "yes") {
-    return Response.json(
+  let data: Signup;
+  try {
+    data = (await request.json()) as Signup;
+  } catch {
+    return json({ message: "This request could not be read." }, { status: 400 });
+  }
+
+  const firstName = cleanText(data.firstName, 80);
+  const email = cleanText(data.email, 254).toLowerCase();
+  const location = cleanText(data.location, 120);
+  const interests = Array.isArray(data.interests)
+    ? data.interests.map((interest) => cleanText(interest, 40)).filter(Boolean).slice(0, 3).join(",")
+    : cleanText(data.interests, 160);
+
+  if (cleanText(data.website, 200)) {
+    return json({ ok: true });
+  }
+
+  if (!firstName || !isValidEmail(email) || data.adultConsent !== "yes") {
+    return json(
       { message: "Please enter your name and email and confirm that you are 21 or older." },
       { status: 400 },
     );
   }
 
-  await env.DB.prepare(`
+  if (!env.DB) {
+    return json({ message: "Early access is temporarily unavailable. Please try again later." }, { status: 503 });
+  }
+
+  try {
+    await env.DB.prepare(`
     CREATE TABLE IF NOT EXISTS early_access_signups (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
       first_name TEXT NOT NULL,
@@ -48,5 +67,9 @@ export async function POST(request: Request) {
     .bind(firstName, email, location, interests)
     .run();
 
-  return Response.json({ ok: true });
+    return json({ ok: true });
+  } catch (error) {
+    console.error("early-access persistence failed", error);
+    return json({ message: "We could not save your spot. Please try again later." }, { status: 503 });
+  }
 }

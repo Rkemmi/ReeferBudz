@@ -3,33 +3,33 @@ import { ClosingBanner, PageHero, PageShell } from "../components/site-chrome";
 
 export const metadata: Metadata = {
   title: "Safety Center",
-  description: "Learn how ReeferBudz plans to protect adult community members before, during, and after in-person hangouts.",
+  description: "Learn ReeferBudz's current safety position, product boundaries, and which protections are planned but not yet launched.",
 };
 
 const tools = [
   {
-    title: "Adult verification",
-    body: "ReeferBudz is for adults 21 and over. Date-of-birth confirmation begins at entry, and identity or age verification may be required before higher-trust features become available. Verification status will never imply that another member is risk-free.",
+    title: "Adults-only entry",
+    body: "ReeferBudz is intended only for adults 21 and over. The current position is date-of-birth entry plus member self-attestation. ReeferBudz should not claim legal identity verification or third-party age verification unless a real verification provider is fully integrated.",
   },
   {
     title: "Consent and boundaries",
-    body: "Every connection is voluntary. Members choose who can contact them, what profile details are visible, and whether to accept a hangout invitation. A yes can become a no at any time. Blocking and reporting are designed to be easy to find.",
+    body: "Every connection is voluntary. Members should be able to control who can contact them, what profile details are visible, and whether to continue a conversation or connection. A yes can become a no at any time.",
   },
   {
-    title: "Guardian button",
-    body: "Before a planned hangout, a member can nominate a trusted person as their Guardian. The Guardian can receive the plan, location, expected end time, and check-in status. ReeferBudz does not replace emergency services or personal judgment.",
+    title: "Privacy-aware discovery",
+    body: "Discovery should limit unnecessary exposure of precise personal information. Location sharing, profile visibility, and member-to-member access should stay proportional to trust and comfort, not force oversharing.",
   },
   {
-    title: "Emergency contacts",
-    body: "Members can keep trusted contacts ready for a hangout and choose what information to share with them. If someone feels unsafe or faces immediate danger, they should leave when possible and contact local emergency services directly.",
+    title: "Reporting and blocking direction",
+    body: "Reporting, blocking, and account-level response are part of the intended safety model. They should be easy to find, simple to understand, and treated as product priorities, even where specific flows are still being completed.",
   },
   {
-    title: "Hangout alarms",
-    body: "A member can set a private check-in time before meeting. The app will prompt them to confirm they are okay, extend the hangout, or request help. Missed check-ins can notify the chosen Guardian according to the member’s settings.",
+    title: "Future safety layers",
+    body: "Features such as trusted-contact sharing, check-in tools, stronger verification, and more advanced safety workflows may be added later. They should be described as planned or under consideration until they are fully built, tested, and legally reviewed.",
   },
   {
     title: "Reports and response",
-    body: "Harassment, threats, pressure, impersonation, illegal sales, and boundary violations are not welcome. Reports are reviewed with context, and actions may include warnings, feature restrictions, suspension, or removal.",
+    body: "Harassment, threats, coercion, impersonation, illegal sales activity, and boundary violations are not welcome. ReeferBudz can define these standards now, but response speed, escalation paths, and enforcement tooling should only be described at the level the product can truly support today.",
   },
 ];
 
@@ -45,8 +45,8 @@ export default function Safety() {
       />
       <section className="safety-principles">
         <div className="section-heading">
-          <p className="eyebrow">Before, during, and after</p>
-          <h2>What protection is intended to look like.</h2>
+          <p className="eyebrow">Current position and next layers</p>
+          <h2>What safety means right now, and what still needs to be built.</h2>
         </div>
         <div className="safety-grid">
           {tools.map((tool, index) => (
@@ -61,10 +61,18 @@ export default function Safety() {
       <section className="notice-panel">
         <h2>What ReeferBudz cannot promise</h2>
         <p>
-          No verification process or safety feature can guarantee another
-          person’s identity, intentions, or behavior. Meet in public, arrange
-          your own transportation, tell someone you trust, protect personal
-          information, and leave whenever something feels wrong.
+          ReeferBudz should not present unlaunched safety tools as active
+          protection. No platform can guarantee another person’s identity,
+          intentions, or behavior, and ReeferBudz should not claim verified
+          identity or verified age unless that system truly exists in the live
+          product.
+        </p>
+        <p>
+          Members should still meet in public when appropriate, arrange their
+          own transportation, tell someone they trust, protect personal
+          information, and leave whenever something feels wrong. If a person is
+          in immediate danger, they should contact local emergency services
+          directly.
         </p>
         <p>
           ReeferBudz is a friendship and community platform. It does not sell,
@@ -74,7 +82,7 @@ export default function Safety() {
       <ClosingBanner
         eyebrow="Trust is built together"
         title="Your boundaries belong to you."
-        description="Help us shape safety tools that support real people in real situations."
+        description="Help shape a community that treats privacy, boundaries, and truthful safety expectations as part of the product from day one."
         scene="safety"
         sceneLabel="Privacy · Check-in · Support"
         mascotAlt="The ReeferBudz mascots helping each other through safety checkpoints"

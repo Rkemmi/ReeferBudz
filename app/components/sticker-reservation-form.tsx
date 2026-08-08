@@ -12,26 +12,35 @@ export function StickerReservationForm() {
     setMessage("");
 
     const form = event.currentTarget;
-    const response = await fetch("/api/shop-interest", {
-      method: "POST",
-      headers: { "content-type": "application/json" },
-      body: JSON.stringify(Object.fromEntries(new FormData(form))),
-    });
-    const result = (await response.json()) as { message?: string };
+    try {
+      const response = await fetch("/api/shop-interest", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify(Object.fromEntries(new FormData(form))),
+      });
+      const result = (await response.json()) as { message?: string };
 
-    if (!response.ok) {
+      if (!response.ok) {
+        setStatus("error");
+        setMessage(result.message ?? "We could not save your reservation. Please try again.");
+        return;
+      }
+
+      form.reset();
+      setStatus("success");
+      setMessage("Your sticker pack is reserved—no payment has been taken.");
+    } catch {
       setStatus("error");
-      setMessage(result.message ?? "We could not save your reservation. Please try again.");
-      return;
+      setMessage("We could not reach the server. Check your connection and try again.");
     }
-
-    form.reset();
-    setStatus("success");
-    setMessage("Your sticker pack is reserved—no payment has been taken.");
   }
 
   return (
-    <form className="signup-form sticker-reservation-form" onSubmit={submit}>
+    <form className="signup-form sticker-reservation-form" onSubmit={submit} aria-busy={status === "sending"}>
+      <label className="form-trap" aria-hidden="true">
+        Website
+        <input name="website" tabIndex={-1} autoComplete="off" />
+      </label>
       <div className="field-row">
         <label>
           First name

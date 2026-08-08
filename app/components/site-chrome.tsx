@@ -1,18 +1,18 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
 import { StaticImage as Image } from "./static-image";
+import { MobileSiteMenu } from "./mobile-site-menu";
 
 const navigation = [
   { href: "/how-it-works", label: "How It Works", key: "how-it-works" },
   { href: "/safety", label: "Safety", key: "safety" },
   { href: "/our-story", label: "Our Story", key: "our-story" },
-  { href: "/shop", label: "Shop", key: "shop" },
 ] as const;
 
 export type NavigationKey = (typeof navigation)[number]["key"];
 
 const sceneArtwork = {
-  gathering: "/brand/scenes/home-community-v6.png",
+  gathering: "/brand/scenes/home-community-v7.png",
   path: "/brand/scenes/how-it-works-model-v3.png",
   safety: "/brand/scenes/safety-prep-v3.png",
   story: "/brand/scenes/our-story-scrapbook-v3.png",
@@ -28,7 +28,7 @@ const sceneArtwork = {
 } as const;
 
 const mobileSceneArtwork: Partial<Record<SceneKey, string>> = {
-  gathering: "/brand/scenes/home-community-mobile-v6.png",
+  gathering: "/brand/scenes/home-community-mobile-v7.png",
 };
 
 export type SceneKey = keyof typeof sceneArtwork;
@@ -76,23 +76,13 @@ export function SiteHeader({ current }: { current?: NavigationKey }) {
         <nav className="desktop-nav" aria-label="Main navigation">
           <NavigationLinks current={current} />
         </nav>
-        <Link className="button button-small" href="/early-access">
-          Join Early Access
+        <Link className="header-signin" href="/login">
+          Sign In
         </Link>
-        <details className="mobile-menu">
-          <summary aria-label="Open navigation">
-            <span />
-            <span />
-            <span />
-          </summary>
-          <nav aria-label="Mobile navigation">
-            <NavigationLinks current={current} />
-            <Link href="/community-guidelines">Community Guidelines</Link>
-            <Link className="button button-small" href="/early-access">
-              Join Early Access
-            </Link>
-          </nav>
-        </details>
+        <Link className="button button-small" href="/signup">
+          Create Account
+        </Link>
+        <MobileSiteMenu />
       </header>
     </>
   );
@@ -101,15 +91,17 @@ export function SiteHeader({ current }: { current?: NavigationKey }) {
 export function PageShell({
   children,
   current,
+  footerFeature,
 }: {
   children: ReactNode;
   current?: NavigationKey;
+  footerFeature?: ReactNode;
 }) {
   return (
     <>
       <SiteHeader current={current} />
       <main>{children}</main>
-      <SiteFooter />
+      <SiteFooter feature={footerFeature} />
     </>
   );
 }
@@ -149,8 +141,8 @@ export function ClosingBanner({
   scene = "gathering",
   sceneLabel = "Community circle",
   mascotAlt = "The ReeferBudz mascots welcoming people into the community",
-  actionLabel = "Join Early Access",
-  actionHref = "/early-access",
+  actionLabel = "Create Account",
+  actionHref = "/signup",
 }: {
   eyebrow: string;
   title: string;
@@ -199,16 +191,17 @@ export function ClosingBanner({
   );
 }
 
-export function SiteFooter() {
+export function SiteFooter({ feature }: { feature?: ReactNode }) {
   return (
-    <footer>
+    <footer className={feature ? "site-footer--featured" : undefined}>
+      {feature}
       <div className="footer-main">
         <div className="footer-brand">
           <Image
-            src="/brand/reeferbudz-primary-on-dark.svg"
+            src="/brand/reeferbudz-primary-transparent-v2.png"
             alt="ReeferBudz — Find Your Smoke Circle."
-            width={1511}
-            height={1023}
+            width={800}
+            height={531}
           />
         </div>
         <div className="footer-links">
@@ -216,7 +209,8 @@ export function SiteFooter() {
             <strong>Explore</strong>
             <Link href="/how-it-works">How It Works</Link>
             <Link href="/safety">Safety</Link>
-            <Link href="/early-access">Early Access</Link>
+            <Link href="/signup">Create Account</Link>
+            <Link href="/login">Log In</Link>
             <Link href="/shop">Shop</Link>
           </div>
           <div>

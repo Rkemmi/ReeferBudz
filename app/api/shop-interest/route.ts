@@ -1,4 +1,5 @@
 import { env } from "cloudflare:workers";
+import { acceptsJson, bodyIsTooLarge, cleanText, isValidEmail, json } from "../_shared/request";
 
 type Reservation = {
   firstName?: unknown;
@@ -6,30 +7,50 @@ type Reservation = {
   quantity?: unknown;
   postalCode?: unknown;
   adultConsent?: unknown;
+  website?: unknown;
 };
 
 export async function POST(request: Request) {
-  const data = (await request.json()) as Reservation;
-  const firstName = typeof data.firstName === "string" ? data.firstName.trim() : "";
-  const email = typeof data.email === "string" ? data.email.trim().toLowerCase() : "";
+  if (!acceptsJson(request) || bodyIsTooLarge(request)) {
+    return json({ message: "This request could not be accepted." }, { status: 415 });
+  }
+
+  let data: Reservation;
+  try {
+    data = (await request.json()) as Reservation;
+  } catch {
+    return json({ message: "This request could not be read." }, { status: 400 });
+  }
+
+  const firstName = cleanText(data.firstName, 80);
+  const email = cleanText(data.email, 254).toLowerCase();
   const quantity = Number(data.quantity);
-  const postalCode = typeof data.postalCode === "string" ? data.postalCode.trim() : "";
+  const postalCode = cleanText(data.postalCode, 10);
+
+  if (cleanText(data.website, 200)) {
+    return json({ ok: true });
+  }
 
   if (
     !firstName ||
-    !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) ||
+    !isValidEmail(email) ||
     !Number.isInteger(quantity) ||
     quantity < 1 ||
     quantity > 5 ||
     data.adultConsent !== "yes"
   ) {
-    return Response.json(
+    return json(
       { message: "Please enter your name and email, choose a quantity, and confirm that you are 21 or older." },
       { status: 400 },
     );
   }
 
-  await env.DB.prepare(`
+  if (!env.DB) {
+    return json({ message: "Reservations are temporarily unavailable. Please try again later." }, { status: 503 });
+  }
+
+  try {
+    await env.DB.prepare(`
     CREATE TABLE IF NOT EXISTS sticker_pack_reservations (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
       first_name TEXT NOT NULL,
@@ -53,5 +74,9 @@ export async function POST(request: Request) {
     .bind(firstName, email, quantity, postalCode)
     .run();
 
-  return Response.json({ ok: true });
+    return json({ ok: true });
+  } catch (error) {
+    console.error("sticker reservation persistence failed", error);
+    return json({ message: "We could not save your reservation. Please try again later." }, { status: 503 });
+  }
 }
