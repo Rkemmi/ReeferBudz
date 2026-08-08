@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>ReeferBudz™ | Find Your Smoke Circle.</title>
+
+  <meta
+    name="description"
+    content="ReeferBudz™ is a 21+ cannabis-friendly social community built to help adults make real platonic friendships, find their Smoke Circle, and connect through shared interests."
+  >
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap"
+    rel="stylesheet"
+  >
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Poppins", sans-serif;
+      background: #f7f4ed;
+      color: #16351f;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    header {
+      background: #153f26;
+      color: white;
+      padding: 18px 8%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 3px 15px rgba(0, 0, 0, 0.12);
+    }
+
+    .logo {
+      font-family: "Cooper Black", Georgia, serif;
+      font-size: 29px;
+      letter-spacing: -1px;
+    }
+
+    .logo span {
+      color: #f29a32;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    nav a:hover {
+      color: #f6b24f;
+    }
+
+    .hero {
+      min-height: 82vh;
+      padding: 100px 8%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background:
+        radial-gradient(circle at top left, rgba(242, 154, 50, 0.25), transparent 34%),
+        radial-gradient(circle at bottom right, rgba(64, 130, 78, 0.28), transparent 35%),
+        #f7f4ed;
+    }
+
+    .hero-inner {
+      max-width: 900px;
+    }
+
+    .badge {
+      display: inline-block;
+      background: #e7efe8;
+      color: #1e5c32;
+      border: 1px solid #c7dccb;
+      padding: 8px 16px;
+      border-radius: 100px;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 22px;
+    }
+
+    .hero h1 {
+      font-family: "Cooper Black", Georgia, serif;
+      font-size: clamp(52px, 9vw, 92px);
+      line-height: 0.95;
+      margin-bottom: 18px;
+      color: #174127;
+    }
+
+    .hero h1 span {
+      color: #e88220;
+    }
+
+    .tagline {
+      font-size: clamp(25px, 4vw, 40px);
+      font-weight: 800;
+      color: #244c2e;
+      margin-bottom: 20px;
+    }
+
+    .hero-copy {
+      max-width: 720px;
+      margin: 0 auto 34px;
+      font-size: 18px;
+      color: #506055;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 15px 27px;
+      border-radius: 12px;
+      font-weight: 600;
+      transition: 0.2s ease;
+    }
+
+    .button-primary {
+      background: #e88220;
+      color: white;
+      box-shadow: 0 7px 20px rgba(232, 130, 32, 0.28);
+    }
+
+    .button-primary:hover {
+      transform: translateY(-2px);
+      background: #d87418;
+    }
+
+    .button-secondary {
+      border: 2px solid #245b34;
+      color: #245b34;
+      background: white;
+    }
+
+    .button-secondary:hover {
+      background: #245b34;
+      color: white;
+    }
+
+    section {
+      padding: 85px 8%;
+    }
+
+    .section-heading {
+      text-align: center;
+      max-width: 760px;
+      margin: 0 auto 50px;
+    }
+
+    .section-heading h2 {
+      font-size: clamp(34px, 5vw, 48px);
+      font-weight: 800;
+      margin-bottom: 12px;
+      color: #173d25;
+    }
+
+    .section-heading p {
+      color: #687069;
+      font-size: 17px;
+    }
+
+    .about {
+      background: white;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .card {
+      background: #f7f4ed;
+      border: 1px solid #e5e0d4;
+      border-radius: 20px;
+      padding: 30px;
+      transition: 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 30px rgba(20, 60, 35, 0.09);
+    }
+
+    .card-icon {
+      font-size: 38px;
+      margin-bottom: 15px;
+    }
+
+    .card h3 {
+      font-size: 21px;
+      margin-bottom: 10px;
+      color: #194629;
+    }
+
+    .card p {
+      font-size: 15px;
+      color: #687069;
+    }
+
+    .safety {
+      background: #173f26;
+      color: white;
+    }
+
+    .safety .section-heading h2 {
+      color: white;
+    }
+
+    .safety .section-heading p {
+      color: #d9e3da;
+    }
+
+    .safety-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .safety-item {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 18px;
+      padding: 24px;
+    }
+
+    .safety-item strong {
+      display: block;
+      margin-bottom: 6px;
+      color: #ffb44f;
+    }
+
+    .coming-soon {
+      text-align: center;
+      background: #f4a13b;
+      color: #183d26;
+    }
+
+    .coming-soon h2 {
+      font-size: clamp(38px, 6vw, 58px);
+      font-weight: 800;
+      margin-bottom: 15px;
+    }
+
+    .coming-soon p {
+      max-width: 700px;
+      margin: 0 auto 25px;
+      font-size: 18px;
+    }
+
+    footer {
+      background: #102f1d;
+      color: #cfd8d1;
+      text-align: center;
+      padding: 35px 8%;
+      font-size: 13px;
+    }
+
+    footer .footer-logo {
+      display: block;
+      font-family: "Cooper Black", Georgia, serif;
+      color: white;
+      font-size: 24px;
+      margin-bottom: 9px;
+    }
+
+    .legal {
+      max-width: 850px;
+      margin: 18px auto 0;
+      font-size: 11px;
+      opacity: 0.8;
+    }
+
+    @media (max-width: 800px) {
+      header {
+        flex-direction: column;
+      }
+
+      nav {
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .hero {
+        padding-top: 75px;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .safety-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="logo">
+      Reefer<span>Budz</span>™
+    </div>
+
+    <nav>
+      <a href="#about">About</a>
+      <a href="#features">Features</a>
+      <a href="#safety">Safety</a>
+      <a href="#coming-soon">Coming Soon</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <section class="hero">
+      <div class="hero-inner">
+
+        <div class="badge">
+          🌿 21+ Cannabis-Friendly Social Community
+        </div>
+
+        <h1>
+          Reefer<span>Budz</span>™
+        </h1>
+
+        <div class="tagline">
+          Find Your Smoke Circle.
+        </div>
+
+        <p class="hero-copy">
+          Making friends as an adult shouldn't be this damn hard.
+          ReeferBudz™ is being built to help cannabis-friendly adults
+          meet new people, build real platonic friendships, create
+          Smoke Circles, and connect through shared interests.
+        </p>
+
+        <div class="buttons">
+          <a class="button button-primary" href="#coming-soon">
+            Join the Community Soon
+          </a>
+
+          <a class="button button-secondary" href="#about">
+            See What We're Building
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="about" id="about">
+
+      <div class="section-heading">
+        <h2>More Than Just a Smoke Buddy.</h2>
+
+        <p>
+          ReeferBudz™ is being designed around friendship, community,
+          shared interests, and finding people you actually click with.
+        </p>
+      </div>
+
+      <div class="cards" id="features">
+
+        <div class="card">
+          <div class="card-icon">🤝</div>
+
+          <h3>Find Your Budz</h3>
+
+          <p>
+            Discover cannabis-friendly adults looking for genuine,
+            platonic friendship and people to actually do things with.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="card-icon">🌿</div>
+
+          <h3>Smoke Circles</h3>
+
+          <p>
+            Build small social circles around personality,
+            interests, activities, and community preferences.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="card-icon">🎨</div>
+
+          <h3>More Than Cannabis</h3>
+
+          <p>
+            Connect over music, gaming, outdoors, art, food,
+            movies, local activities, hobbies, and everything else
+            that makes you you.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="card-icon">📍</div>
+
+          <h3>Meet Locally</h3>
+
+          <p>
+            Find nearby community connections while keeping
+            location privacy and personal safety in mind.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="card-icon">💬</div>
+
+          <h3>Real Conversation</h3>
+
+          <p>
+            A social experience designed around friendship and
+            conversation instead of endless swiping.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="card-icon">🛡️</div>
+
+          <h3>Safety First</h3>
+
+          <p>
+            Reporting, blocking, age requirements, community rules,
+            privacy tools, and safer meeting guidance are part of
+            the foundation.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="safety" id="safety">
+
+      <div class="section-heading">
+        <h2>Built for Community. Built Responsibly.</h2>
+
+        <p>
+          ReeferBudz™ is intended for adults age 21 and older.
+          Safety and responsible community behavior aren't an
+          afterthought—they're part of the platform itself.
+        </p>
+      </div>
+
+      <div class="safety-grid">
+
+        <div class="safety-item">
+          <strong>🔞 Adults 21+ Only</strong>
+          The ReeferBudz™ community is intended exclusively for adults
+          who are at least 21 years old.
+        </div>
+
+        <div class="safety-item">
+          <strong>🚫 No Cannabis Sales</strong>
+          ReeferBudz™ is not a marketplace for buying, selling,
+          delivering, or arranging cannabis transactions.
+        </div>
+
+        <div class="safety-item">
+          <strong>🛡️ Community Safety</strong>
+          Reporting, blocking, privacy tools, community standards,
+          and moderation are being built into the platform.
+        </div>
+
+        <div class="safety-item">
+          <strong>🚗 Consume Responsibly</strong>
+          Never drive impaired. Users are expected to follow
+          applicable laws and prioritize personal and community safety.
+        </div>
+
+      </div>
+
+    </section>
+
+    <section class="coming-soon" id="coming-soon">
+
+      <h2>We're Just Getting Started. 🌱</h2>
+
+      <p>
+        ReeferBudz™ is currently in development.
+        The first version of our community is coming soon.
+      </p>
+
+      <strong>reeferbudz.com</strong>
+
+    </section>
+
+  </main>
+
+  <footer>
+
+    <span class="footer-logo">
+      ReeferBudz™
+    </span>
+
+    <p>
+      Find Your Smoke Circle.
+    </p>
+
+    <p>
+      © 2026 ReeferBudz™. All rights reserved.
+    </p>
+
+    <div class="legal">
+      ReeferBudz™ does not sell cannabis and is not intended to facilitate
+      cannabis purchases, sales, delivery, or other illegal activity.
+      Users are responsible for complying with applicable federal,
+      state, and local laws.
+    </div>
+
+  </footer>
+
+</body>
+</html>
