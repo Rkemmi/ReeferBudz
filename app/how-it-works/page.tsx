@@ -66,6 +66,25 @@ export default function HowItWorks() {
           first hello feel easier.
         </p>
       </section>
+      <section className="article-layout">
+        <section className="article-section">
+          <h2>A practical example</h2>
+          <div>
+            <ol>
+              <li>Join with secure sign-in and complete your member setup.</li>
+              <li>Choose a few interests, your friendship goals, and your privacy settings.</li>
+              <li>Open Discover Budz to see active members who opted into discovery.</li>
+              <li>Learn what you already share before deeper connection tools expand.</li>
+              <li>When messaging and planning tools are ready, move toward a public meetup at your own pace.</li>
+            </ol>
+            <p>
+              Some parts of that journey are live now, and some are still being
+              rolled out carefully. ReeferBudz would rather be clear about that
+              than pretend every step is already finished.
+            </p>
+          </div>
+        </section>
+      </section>
       <ClosingBanner
         eyebrow="The circle is still forming"
         title="There is room for you in it."

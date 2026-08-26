@@ -17,7 +17,7 @@ export function MobileSiteMenu() {
     <summary aria-label={open ? "Close navigation" : "Open navigation"}><span /><span /><span /></summary>
     <nav aria-label="Mobile navigation" onClick={() => setOpen(false)}>
       <MenuCategory title="About Us" links={[["Our Story","/our-story"],["How It Works","/how-it-works"],["Safety","/safety"],["Contact","/contact"]]} />
-      <MenuCategory title="Explore" links={[["Sign Up","/signup"],["Log In","/login"],["Community Guidelines","/community-guidelines"]]} />
+      <MenuCategory title="Explore" links={[["Create Account","/signup"],["Sign In","/login"],["Community Guidelines","/community-guidelines"]]} />
       <MenuCategory title="Legal & Access" links={[["Privacy","/privacy"],["Terms","/terms"],["Accessibility","/accessibility"]]} />
     </nav>
   </details>;

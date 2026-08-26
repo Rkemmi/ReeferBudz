@@ -81,6 +81,17 @@ export default function LoginPage() {
             ReeferBudz is for adults 21+. Age is self-attested during member
             setup and is not independently verified.
           </p>
+          <div className="login-privacy-note">
+            <span aria-hidden="true">●</span>
+            <div>
+              <strong>Need a different path?</strong>
+              <p>
+                If you used the wrong email, expected a password, or get stuck
+                in sign-in, use the Contact page so ReeferBudz can route you to
+                the right next step.
+              </p>
+            </div>
+          </div>
         </div>
 
         <nav className="login-help-links" aria-label="Login help and policies">

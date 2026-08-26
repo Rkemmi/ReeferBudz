@@ -10,6 +10,24 @@ export const earlyAccessSignups = sqliteTable("early_access_signups", {
   createdAt: text("created_at").notNull().default(sql`CURRENT_TIMESTAMP`),
 });
 
+export const foundingBudzWaitlist = sqliteTable("founding_budz_waitlist", {
+  id: integer("id").primaryKey({ autoIncrement: true }),
+  email: text("email").notNull().unique(),
+  postalCode: text("postal_code"),
+  neighborhood: text("neighborhood"),
+  goals: text("goals").notNull(),
+  otherDetails: text("other_details"),
+  consentedAt: text("consented_at").notNull().default(sql`CURRENT_TIMESTAMP`),
+  createdAt: text("created_at").notNull().default(sql`CURRENT_TIMESTAMP`),
+});
+
+export const launchListSignups = sqliteTable("launch_list_signups", {
+  id: integer("id").primaryKey({ autoIncrement: true }),
+  email: text("email").notNull().unique(),
+  consentedAt: text("consented_at").notNull().default(sql`CURRENT_TIMESTAMP`),
+  createdAt: text("created_at").notNull().default(sql`CURRENT_TIMESTAMP`),
+});
+
 export const stickerPackReservations = sqliteTable("sticker_pack_reservations", {
   id: integer("id").primaryKey({ autoIncrement: true }),
   firstName: text("first_name").notNull(),

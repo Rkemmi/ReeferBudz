@@ -22,7 +22,7 @@ export default function Signup() {
             priority
           />
           <div className="signup-copy">
-            <p className="eyebrow">Step 1 of 2 · Secure account access</p>
+            <p className="eyebrow">Secure account access</p>
             <h1>Your circle<br /><span>starts here.</span></h1>
             <p className="hero-lead">
               Sign in securely, then build a profile around your interests,
@@ -70,6 +70,10 @@ export default function Signup() {
             <div className="auth-explainer">
               <strong>Clear and honest age gating</strong>
               <p>Your provider confirms control of your sign-in email. During member setup, you’ll enter your birthday and self-attest that you are 21 or older. ReeferBudz does not currently verify legal identity or age through a third-party service.</p>
+            </div>
+            <div className="auth-explainer">
+              <strong>Sign-in is not the same as full member access</strong>
+              <p>Secure sign-in opens the door to setup. Member access can still depend on completing onboarding and may be paused if a profile is under review.</p>
             </div>
             <p className="auth-signin-note">Already started? <Link href="/signin-with-chatgpt?return_to=%2Fmember">Sign in to Member Home</Link></p>
           </div>

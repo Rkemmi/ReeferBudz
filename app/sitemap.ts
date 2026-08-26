@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
+import { getSiteUrl, isPublicLaunchMode } from "./launch-mode";
 
-const baseUrl = "https://reeferbudz-community.rkemmi.chatgpt.site";
 const routes = [
   "",
   "/how-it-works",
@@ -16,7 +16,10 @@ const routes = [
 ] as const;
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  return routes.map((route) => ({
+  const baseUrl = getSiteUrl();
+  const activeRoutes = isPublicLaunchMode() ? [""] : routes;
+
+  return activeRoutes.map((route) => ({
     url: `${baseUrl}${route}`,
     lastModified: new Date("2026-08-06"),
     changeFrequency: route === "" ? "weekly" : "monthly",

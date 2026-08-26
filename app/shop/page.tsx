@@ -5,9 +5,9 @@ import { StaticImage as Image } from "../components/static-image";
 import { StickerReservationForm } from "../components/sticker-reservation-form";
 
 export const metadata: Metadata = {
-  title: "Support the Circle Shop",
+  title: "Prelaunch Merch Interest",
   description:
-    "Preview the first ReeferBudz merchandise drop and help fund the friendship-first community we are building.",
+    "Preview the first ReeferBudz merchandise concept and register interest in a possible founding sticker drop.",
 };
 
 const products = [
@@ -26,17 +26,18 @@ export default function Shop() {
     <PageShell current="shop">
       <section className="shop-hero">
         <div className="shop-hero-copy">
-          <p className="eyebrow">Support the Circle Shop</p>
-          <h1>Wear the idea.<br /><span>Help build the circle.</span></h1>
+          <p className="eyebrow">Prelaunch merch interest</p>
+          <h1>Wear the idea.<br /><span>Help test demand first.</span></h1>
           <p className="hero-lead">
-            We’re starting with one affordable three-sticker pack so every
-            early dollar can go back into building the ReeferBudz community.
+            This page is a lightweight interest check for the first
+            ReeferBudz sticker concept. It is not a full store, and nothing is
+            being charged today.
           </p>
           <div className="hero-actions">
             <Link className="button" href="#reserve-a-pack">Reserve a $10 pack →</Link>
             <Link className="text-action" href="#founding-drop">See what’s included</Link>
           </div>
-          <small>Merchandise only · No cannabis · Nothing is being charged today</small>
+          <small>Merchandise concept only · No cannabis · No payment today</small>
         </div>
         <div className="shop-sticker-stack" aria-label="ReeferBudz starter sticker previews">
           <Image src="/shop/find-your-bud-sticker.png" alt="Find Your Bud sticker" width={975} height={975} priority />
@@ -46,7 +47,7 @@ export default function Shop() {
       </section>
 
       <section className="shop-purpose" aria-label="What purchases will support">
-        <p>What your purchase will support</p>
+          <p>Why ask about merch this early?</p>
         <div>
           <span>Safer community tools</span>
           <span>Website development</span>
@@ -60,8 +61,9 @@ export default function Shop() {
           <p className="eyebrow">The Founding Budz Drop</p>
           <h2>Three original stickers. One simple first step.</h2>
           <p>
-            These are previews from artwork already created for ReeferBudz.
-            The planned launch price is $10. Final shipping details will be confirmed after the first production quote.
+            These are concept previews from artwork already created for
+            ReeferBudz. The planned launch price is $10, but production,
+            shipping, and launch timing are still being evaluated.
           </p>
         </div>
         <div className="product-grid product-grid--single">
@@ -85,12 +87,12 @@ export default function Shop() {
 
       <section className="sticker-reservation" id="reserve-a-pack">
         <div className="sticker-reservation-copy">
-          <p className="eyebrow">No money today</p>
+          <p className="eyebrow">Interest only</p>
           <h2>Reserve your sticker pack.</h2>
           <p>
-            Tell us how many packs you would probably buy. We’ll use the total
-            to order the smallest sensible print run and email you before any
-            payment is requested.
+            Tell us how many packs you might buy. ReeferBudz can use the total
+            to judge whether a small first print run makes sense and email you
+            before any payment is ever requested.
           </p>
           <div className="reservation-price"><strong>$10</strong><span>planned price for all three stickers</span></div>
         </div>
@@ -103,7 +105,7 @@ export default function Shop() {
       <section className="shop-trust">
         <div>
           <p className="eyebrow">Built responsibly</p>
-          <h2>A shop that supports the community—not a paywall around it.</h2>
+          <h2>This is not a full store and not a launch requirement.</h2>
         </div>
         <div className="shop-trust-grid">
           <article><strong>Nothing charged yet</strong><p>This preview gathers interest while suppliers, costs, and fulfillment are finalized.</p></article>

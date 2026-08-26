@@ -1,92 +1,217 @@
 import type { Metadata } from "next";
-import { ClosingBanner, PageHero, PageShell } from "../components/site-chrome";
+import { ClosingBanner, PageShell } from "../components/site-chrome";
+import { StaticImage as Image } from "../components/static-image";
 
 export const metadata: Metadata = {
   title: "Safety Center",
-  description: "Learn ReeferBudz's current safety position, product boundaries, and which protections are planned but not yet launched.",
+  description:
+    "Learn ReeferBudz's safety principles, privacy boundaries, and adults-only friendship-first community expectations.",
 };
 
-const tools = [
+const topSafetyCards = [
   {
-    title: "Adults-only entry",
-    body: "ReeferBudz is intended only for adults 21 and over. The current position is date-of-birth entry plus member self-attestation. ReeferBudz should not claim legal identity verification or third-party age verification unless a real verification provider is fully integrated.",
+    title: "Adults Only.",
+    body: (
+      <>
+        <p>ReeferBudz™ is for adults age 21 and older.</p>
+        <p>
+          Members must meet the platform&apos;s age requirements to create and
+          maintain an account.
+        </p>
+      </>
+    ),
   },
   {
-    title: "Consent and boundaries",
-    body: "Every connection is voluntary. Members should be able to control who can contact them, what profile details are visible, and whether to continue a conversation or connection. A yes can become a no at any time.",
+    title: "Share at your own pace.",
+    body: (
+      <>
+        <p>
+          Building trust with someone doesn&apos;t mean you have to share everything
+          right away.
+        </p>
+        <ul>
+          <li>Your exact home address</li>
+          <li>Your phone number</li>
+          <li>Your workplace</li>
+          <li>Financial information</li>
+          <li>Passwords or account information</li>
+          <li>Your precise location</li>
+        </ul>
+      </>
+    ),
   },
   {
-    title: "Privacy-aware discovery",
-    body: "Discovery should limit unnecessary exposure of precise personal information. Location sharing, profile visibility, and member-to-member access should stay proportional to trust and comfort, not force oversharing.",
+    title: "Make your first meetup a smart one.",
+    body: (
+      <>
+        <ul>
+          <li>Meet somewhere public</li>
+          <li>Tell someone you trust where you&apos;re going</li>
+          <li>Arrange your own transportation</li>
+          <li>Keep your phone with you</li>
+          <li>Protect your personal belongings</li>
+          <li>Know your limits</li>
+        </ul>
+        <p>You never have to meet someone before you&apos;re ready.</p>
+      </>
+    ),
   },
   {
-    title: "Reporting and blocking direction",
-    body: "Reporting, blocking, and account-level response are part of the intended safety model. They should be easy to find, simple to understand, and treated as product priorities, even where specific flows are still being completed.",
+    title: "Friendship should never feel forced.",
+    body: (
+      <>
+        <p>
+          Respect another person&apos;s boundaries, decisions, privacy, and right
+          to say no.
+        </p>
+        <p>No member ever owes another member:</p>
+        <ul>
+          <li>A friendship</li>
+          <li>A meetup</li>
+          <li>A response</li>
+          <li>Personal information</li>
+          <li>Their phone number</li>
+          <li>Their exact location</li>
+        </ul>
+      </>
+    ),
+  },
+];
+
+const lowerSafetyCards = [
+  {
+    title: "Your circle. Your boundaries.",
+    body: "If another member makes you uncomfortable, you should be able to end interaction. Reporting, blocking, and deeper safety tooling are part of the product direction, but not every safety control is fully live across the member experience yet.",
   },
   {
-    title: "Future safety layers",
-    body: "Features such as trusted-contact sharing, check-in tools, stronger verification, and more advanced safety workflows may be added later. They should be described as planned or under consideration until they are fully built, tested, and legally reviewed.",
+    title: "Keep your exact location private.",
+    body: "Knowing that another Bud is nearby doesn’t mean they need to know exactly where you are. ReeferBudz™ is built around general location sharing, not exposing exact addresses or precise live location.",
   },
   {
-    title: "Reports and response",
-    body: "Harassment, threats, coercion, impersonation, illegal sales activity, and boundary violations are not welcome. ReeferBudz can define these standards now, but response speed, escalation paths, and enforcement tooling should only be described at the level the product can truly support today.",
+    title: "Friendship & community, never cannabis sales.",
+    body: "ReeferBudz™ is a cannabis-friendly social community. It is not a cannabis marketplace, does not sell ReeferBudz™, and does not arrange transactions, delivery, or illegal activity.",
+  },
+  {
+    title: "Good friends look out for each other.",
+    body: "Community safety isn’t just about rules. It’s about treating people with respect, paying attention when something doesn’t feel right, respecting someone’s boundaries, and helping create the kind of community you’d want your own friends to be part of.",
+  },
+  {
+    title: "Trust your instincts.",
+    body: "You can stop communicating with someone at any time. You can decline a meetup. You can leave an event. You can block someone. Your safety is more important than avoiding an awkward moment.",
   },
 ];
 
 export default function Safety() {
   return (
     <PageShell current="safety">
-      <PageHero
-        eyebrow="Safety Center"
-        title="Safer connections are designed before the first hello."
-        intro="Safety is a shared practice supported by clear boundaries, practical tools, transparent limits, and community accountability."
-        tone="safety"
-        accent="Prepared together"
-      />
-      <section className="safety-principles">
-        <div className="section-heading">
-          <p className="eyebrow">Current position and next layers</p>
-          <h2>What safety means right now, and what still needs to be built.</h2>
-        </div>
-        <div className="safety-grid">
-          {tools.map((tool, index) => (
-            <article key={tool.title}>
-              <span>{String(index + 1).padStart(2, "0")}</span>
-              <h3>{tool.title}</h3>
-              <p>{tool.body}</p>
+      <div className="rb-public-page rb-safety-page">
+        <section className="rb-cleveland-hero rb-cleveland-hero--safety">
+          <Image
+            className="rb-cleveland-hero-image"
+            src="/brand/scenes/live-cleveland-hero.jpg"
+            alt="Downtown Cleveland at night behind the ReeferBudz safety page"
+            fill
+            priority
+            sizes="100vw"
+          />
+          <div className="rb-cleveland-hero-copy">
+            <p className="rb-eyebrow">Safety</p>
+            <h1>
+              <span>Your Safety</span>
+              <span className="rb-home-accent">Comes First.</span>
+            </h1>
+            <p>
+              Meeting new people should feel exciting, not uncomfortable.
+              ReeferBudz™ is built around friendship, respect, privacy, personal
+              boundaries, and helping adults 21+ make safer connections.
+            </p>
+          </div>
+          <aside className="rb-cleveland-card">
+            <strong>Cleveland, OH</strong>
+            <p>Cleveland born.<br />Friendship first.</p>
+          </aside>
+        </section>
+
+        <section className="rb-safety-board rb-safety-board--top">
+          <article className="rb-safety-callout">
+            <h2>
+              <span>Stay safe.</span>
+              <span>Find your people.</span>
+            </h2>
+            <p>
+              Building real friendships starts with feeling comfortable and
+              respected.
+            </p>
+            <p>
+              ReeferBudz™ gives adults 21+ a place to connect with
+              cannabis-friendly people while encouraging everyone to protect
+              their privacy, respect boundaries, and look out for one another.
+            </p>
+          </article>
+          {topSafetyCards.map((card) => (
+            <article key={card.title} className="rb-safety-card">
+              <h3>{card.title}</h3>
+              {card.body}
             </article>
           ))}
-        </div>
-      </section>
-      <section className="notice-panel">
-        <h2>What ReeferBudz cannot promise</h2>
-        <p>
-          ReeferBudz should not present unlaunched safety tools as active
-          protection. No platform can guarantee another person’s identity,
-          intentions, or behavior, and ReeferBudz should not claim verified
-          identity or verified age unless that system truly exists in the live
-          product.
-        </p>
-        <p>
-          Members should still meet in public when appropriate, arrange their
-          own transportation, tell someone they trust, protect personal
-          information, and leave whenever something feels wrong. If a person is
-          in immediate danger, they should contact local emergency services
-          directly.
-        </p>
-        <p>
-          ReeferBudz is a friendship and community platform. It does not sell,
-          deliver, or arrange transactions involving cannabis.
-        </p>
-      </section>
-      <ClosingBanner
-        eyebrow="Trust is built together"
-        title="Your boundaries belong to you."
-        description="Help shape a community that treats privacy, boundaries, and truthful safety expectations as part of the product from day one."
-        scene="safety"
-        sceneLabel="Privacy · Check-in · Support"
-        mascotAlt="The ReeferBudz mascots helping each other through safety checkpoints"
-      />
+        </section>
+
+        <section className="rb-policy-grid rb-policy-grid--three">
+          <article className="rb-policy-card">
+            <h2>What ReeferBudz does not do</h2>
+            <p>
+              ReeferBudz is not emergency services and should never be treated
+              as a substitute for local emergency help.
+            </p>
+          </article>
+          <article className="rb-policy-card">
+            <h2>What ReeferBudz does not do</h2>
+            <p>
+              ReeferBudz does not currently use a third-party identity or legal
+              age-verification provider. Age is self-attested during member
+              setup.
+            </p>
+          </article>
+          <article className="rb-policy-card">
+            <h2>What ReeferBudz does not do</h2>
+            <p>
+              ReeferBudz does not expose exact home addresses, provide precise
+              live location sharing, or facilitate cannabis sales, delivery, or
+              transactions.
+            </p>
+          </article>
+        </section>
+
+        <section className="rb-safety-board rb-safety-board--bottom">
+          {lowerSafetyCards.map((card) => (
+            <article key={card.title} className="rb-safety-card">
+              <h3>{card.title}</h3>
+              <p>{card.body}</p>
+            </article>
+          ))}
+        </section>
+
+        <ClosingBanner
+          eyebrow="Look out for"
+          title={
+            <>
+              <span>Your Budz.</span>
+            </>
+          }
+          description={
+            <>
+              Good friendships respect boundaries,
+              <br />
+              communicate clearly, and look out for
+              <br />
+              one another.
+            </>
+          }
+          scene="safety"
+          sceneLabel="Safety tips"
+          mascotAlt="The ReeferBudz mascots sharing safety tips in Cleveland"
+        />
+      </div>
     </PageShell>
   );
 }

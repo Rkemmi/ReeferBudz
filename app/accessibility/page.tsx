@@ -8,7 +8,7 @@ export default function Accessibility() {
     <ContentPage
       eyebrow="Accessibility"
       title="The circle should be easier for everyone to enter."
-      intro="ReeferBudz is committed to building an inclusive website and product experience for people with disabilities."
+      intro="ReeferBudz is committed to building an inclusive website and product experience for people with disabilities. This statement was last reviewed on August 13, 2026."
       banner={{
         eyebrow: "Everyone belongs",
         title: "More ways in. More people in the circle.",
@@ -20,7 +20,8 @@ export default function Accessibility() {
       sections={[
         { title: "Our approach", body: <p>We aim to support keyboard navigation, visible focus states, meaningful headings, descriptive text alternatives, sufficient color contrast, responsive layouts, zoom, and reduced-motion preferences.</p> },
         { title: "Ongoing work", body: <p>Accessibility is a continuing practice. As community features are designed, we will test core journeys and include accessibility in product review rather than treating it as a final check.</p> },
-        { title: "Request help or report a barrier", body: <p>If something prevents you from using this site, email accessibility@reeferbudz.com. Include the page, what you were trying to do, and your preferred way for us to respond. We will offer a reasonable alternative when possible.</p> },
+        { title: "Known limits today", body: <p>Some parts of the site and member preview are still evolving, and not every planned experience has been fully audited in production across browsers, assistive technologies, and device sizes yet.</p> },
+        { title: "Request help or report a barrier", body: <p>If something prevents you from using this site, contact ReeferBudz through the Contact page or email accessibility@reeferbudz.com. Include the page, what you were trying to do, and your preferred way for us to respond. We will offer a reasonable alternative when possible.</p> },
         { title: "Compatible experiences", body: <p>The site is designed for current versions of major browsers and common assistive technologies. Older software may provide a less complete experience.</p> },
       ]}
     />

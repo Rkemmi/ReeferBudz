@@ -1,5 +1,5 @@
 import { getChatGPTUser } from "../../../../chatgpt-auth";
-import { findMemberByEmail } from "../../../../../db/members";
+import { findMemberByEmail, memberHasAppAccess } from "../../../../../db/members";
 import { createOrReplaceGuardianContact, findGuardianContact, removeGuardianContact } from "../../../../../db/guardian";
 
 type GuardianContactInput = { name?: unknown; phone?: unknown; email?: unknown; listingConsent?: unknown; verificationConsent?: unknown };
@@ -10,6 +10,7 @@ export async function GET() {
   if (!user) return Response.json({ message: "Sign in to continue." }, { status: 401 });
   const member = await findMemberByEmail(user.email);
   if (!member) return Response.json({ message: "Complete member setup first." }, { status: 409 });
+  if (!memberHasAppAccess(member)) return Response.json({ message: "This account is not active right now." }, { status: 403 });
   return Response.json({ contact: await findGuardianContact(member.id) });
 }
 
@@ -18,6 +19,7 @@ export async function POST(request: Request) {
   if (!user) return Response.json({ message: "Sign in to continue." }, { status: 401 });
   const member = await findMemberByEmail(user.email);
   if (!member) return Response.json({ message: "Complete member setup first." }, { status: 409 });
+  if (!memberHasAppAccess(member)) return Response.json({ message: "This account is not active right now." }, { status: 403 });
   const data = (await request.json()) as GuardianContactInput;
   const name = clean(data.name, 80);
   const phone = clean(data.phone, 18).replace(/[\s().-]/gu, "");
@@ -39,6 +41,7 @@ export async function DELETE() {
   if (!user) return Response.json({ message: "Sign in to continue." }, { status: 401 });
   const member = await findMemberByEmail(user.email);
   if (!member) return Response.json({ message: "Complete member setup first." }, { status: 409 });
+  if (!memberHasAppAccess(member)) return Response.json({ message: "This account is not active right now." }, { status: 403 });
   await removeGuardianContact(member.id);
   return Response.json({ ok: true });
 }

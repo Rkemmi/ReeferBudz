@@ -25,6 +25,10 @@ export type MemberRecord = {
   updated_at: string;
 };
 
+export function memberHasAppAccess(member: Pick<MemberRecord, "status">) {
+  return member.status === "active";
+}
+
 export async function ensureMemberSchema() {
   const db = env.DB;
   await db.batch([

@@ -9,12 +9,12 @@ const routes = [
   ["/safety", "Safer connections"],
   ["/our-story", "Cleveland roots"],
   ["/community-guidelines", "Make the circle safer"],
-  ["/contact", "keep the conversation open"],
-  ["/privacy", "Clear choices"],
+  ["/contact", "We’d love to hear from you"],
+  ["/privacy", "How ReeferBudz handles information"],
   ["/terms", "Terms for using"],
   ["/accessibility", "easier for everyone"],
-  ["/early-access", "Your future circle"],
-  ["/signup", "Your circle is forming"],
+  ["/early-access", "first 100 Founding Budz"],
+  ["/signup", "Access your account securely"],
   ["/login", "Your circle is right where you left it"],
   ["/shop", "Founding Budz Drop"],
 ];
@@ -26,6 +26,22 @@ test("all public ReeferBudz routes contain useful page content", async () => {
     assert.match(source, new RegExp(expected, "i"), route);
     assert.match(source, /export default function/, route);
   }
+});
+
+test("homepage can switch into a single launch-mode experience", async () => {
+  const [page, launchPage, proxy] = await Promise.all([
+    readFile(new URL("../app/page.tsx", import.meta.url), "utf8"),
+    readFile(new URL("../app/components/launch-mode-page.tsx", import.meta.url), "utf8"),
+    readFile(new URL("../proxy.ts", import.meta.url), "utf8"),
+  ]);
+  assert.match(page, /isPublicLaunchMode\(\)/);
+  assert.match(launchPage, /REEFERBUDZ™ IS COMING\./);
+  assert.match(launchPage, /Friendship first\. Community always\./);
+  assert.match(launchPage, /Not a dispensary\./);
+  assert.match(launchPage, /Not a cannabis marketplace\./);
+  assert.match(launchPage, /Not a delivery service\./);
+  assert.match(proxy, /PUBLIC_LAUNCH_MODE/);
+  assert.match(proxy, /\/signup/);
 });
 
 test("shared chrome links only to real public destinations", async () => {
@@ -53,26 +69,25 @@ test("login page provides a truthful hosted-auth entry", async () => {
   assert.match(page, /self-attested/i);
   assert.doesNotMatch(page, /verified age|age verified|identity verified/i);
   assert.match(chrome, /href=["']\/login["']/);
-  assert.match(menu, /["']Log In["'],["']\/login["']/);
+  assert.match(menu, /["']Sign In["'],["']\/login["']/);
 });
 
-test("brand implementation uses approved tokens, assets, and weights", async () => {
-  const [css, chrome, home] = await Promise.all([
+test("brand implementation uses approved tokens, assets, and launch-mode content", async () => {
+  const [css, chrome, launchPage] = await Promise.all([
     readFile(new URL("../app/globals.css", import.meta.url), "utf8"),
     readFile(new URL("../app/components/site-chrome.tsx", import.meta.url), "utf8"),
-    readFile(new URL("../app/page.tsx", import.meta.url), "utf8"),
+    readFile(new URL("../app/components/launch-mode-page.tsx", import.meta.url), "utf8"),
   ]);
 
   assert.match(css, /--rb-brand-forest:/);
   assert.match(css, /--rb-brand-lake-blue:\s*#2f6f8f/);
   assert.doesNotMatch(css, /orange|#ff6b1a/i);
   assert.match(css, /--rb-weight-extrabold:\s*800/);
-  assert.doesNotMatch(css, /\b(?:linear|radial|conic)-gradient\(/);
   assert.doesNotMatch(css, /font-weight:\s*(?:900|1000)\b/);
-  assert.match(chrome, /reeferbudz-wordmark\.svg/);
-  assert.match(chrome, /reeferbudz-primary-on-dark\.svg/);
-  assert.match(home, /reeferbudz-mascots\.svg/);
-  assert.doesNotMatch(`${chrome}\n${home}`, /reeferbudz-(?:wordmark|primary-logo|mascots)\.png/);
+  assert.match(chrome, /reeferbudz-primary-logo\.png/);
+  assert.match(chrome, /reeferbudz-primary-transparent-v2\.png/);
+  assert.match(launchPage, /reeferbudz-mascots\.svg/);
+  assert.match(launchPage, /Friendship first\. Community always\./);
 });
 
 test("mobile navigation closes on scroll and early-access submission is implemented", async () => {
@@ -86,8 +101,29 @@ test("mobile navigation closes on scroll and early-access submission is implemen
   assert.match(menu, /<details className="mobile-menu"/);
   assert.match(menu, /addEventListener\("scroll"/);
   assert.match(form, /fetch\\?|\bfetch\(["']\/api\/early-access/);
-  assert.match(route, /INSERT INTO early_access_signups/);
+  assert.match(form, /Founding Budz 2026/);
+  assert.match(form, /name="postalCode"/);
+  assert.match(form, /name="neighborhood"/);
+  assert.match(form, /name="find"/);
+  assert.match(route, /CREATE TABLE IF NOT EXISTS founding_budz_waitlist/);
+  assert.match(route, /INSERT INTO founding_budz_waitlist/);
   assert.match(route, /adultConsent/);
+});
+
+test("launch list form persists email-only launch notifications", async () => {
+  const [form, route, schema, envExample] = await Promise.all([
+    readFile(new URL("../app/components/launch-list-form.tsx", import.meta.url), "utf8"),
+    readFile(new URL("../app/api/launch-list/route.ts", import.meta.url), "utf8"),
+    readFile(new URL("../db/schema.ts", import.meta.url), "utf8"),
+    readFile(new URL("../.env.example", import.meta.url), "utf8"),
+  ]);
+  assert.match(form, /KEEP ME POSTED/);
+  assert.match(form, /type="email"/);
+  assert.match(form, /adultConsent/);
+  assert.match(route, /CREATE TABLE IF NOT EXISTS launch_list_signups/);
+  assert.match(route, /INSERT INTO launch_list_signups/);
+  assert.match(schema, /launchListSignups/);
+  assert.match(envExample, /PUBLIC_LAUNCH_MODE=true/);
 });
 
 test("sticker pack reservations are persisted without collecting payment", async () => {
@@ -98,7 +134,7 @@ test("sticker pack reservations are persisted without collecting payment", async
     readFile(new URL("../db/schema.ts", import.meta.url), "utf8"),
   ]);
   assert.match(page, /Reserve a \$10 pack/);
-  assert.match(page, /No money today/);
+  assert.match(page, /No payment today/);
   assert.match(form, /fetch\(["']\/api\/shop-interest/);
   assert.match(form, /not a purchase/i);
   assert.match(route, /INSERT INTO sticker_pack_reservations/);
@@ -114,6 +150,19 @@ test("public form input helpers bound and validate stored data", () => {
   assert.equal(isValidEmail("hello@example.com"), true);
   assert.equal(isValidEmail("not-an-email"), false);
   assert.equal(isValidEmail(`${"a".repeat(245)}@example.com`), false);
+});
+
+test("early-access page presents the Cleveland-first Founding Budz waitlist clearly", async () => {
+  const [page, privacy, schema] = await Promise.all([
+    readFile(new URL("../app/early-access/page.tsx", import.meta.url), "utf8"),
+    readFile(new URL("../app/privacy/page.tsx", import.meta.url), "utf8"),
+    readFile(new URL("../db/schema.ts", import.meta.url), "utf8"),
+  ]);
+  assert.match(page, /first 100 Founding Budz/i);
+  assert.match(page, /Cleveland-first/i);
+  assert.match(page, /not dating or transactions/i);
+  assert.match(privacy, /Founding Budz waitlist/);
+  assert.match(schema, /foundingBudzWaitlist/);
 });
 
 test("worker applies baseline browser security headers", async () => {

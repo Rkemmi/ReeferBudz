@@ -3,6 +3,7 @@ import { getChatGPTUser } from "../../../chatgpt-auth";
 import {
   CURRENT_GUIDELINES_VERSION,
   findMemberByEmail,
+  memberHasAppAccess,
 } from "../../../../db/members";
 import { sendWelcomeEmail } from "../../../email/welcome-email";
 
@@ -73,6 +74,12 @@ export async function POST(request: Request) {
 
   const now = new Date().toISOString();
   const existing = await findMemberByEmail(user.email);
+  if (existing && !memberHasAppAccess(existing)) {
+    return Response.json(
+      { message: "This account is currently in review or disabled. Staff must restore access before onboarding can continue." },
+      { status: 403 },
+    );
+  }
   const id = existing?.id ?? crypto.randomUUID();
   await env.DB.prepare(`INSERT INTO members (
     id, email, display_name, birth_date, adult_attested_at,
