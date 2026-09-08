@@ -5,11 +5,13 @@ import { FormEvent, useState } from "react";
 export function EarlyAccessForm() {
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
   const [message, setMessage] = useState("");
+  const [foundingBudNumber, setFoundingBudNumber] = useState<number | null>(null);
 
   async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     setStatus("sending");
     setMessage("");
+    setFoundingBudNumber(null);
 
     const form = event.currentTarget;
     try {
@@ -18,7 +20,7 @@ export function EarlyAccessForm() {
         headers: { "content-type": "application/json" },
         body: JSON.stringify(Object.fromEntries(new FormData(form))),
       });
-      const result = (await response.json()) as { message?: string };
+      const result = (await response.json()) as { message?: string; foundingBudNumber?: number; isReturning?: boolean };
 
       if (!response.ok) {
         setStatus("error");
@@ -28,7 +30,17 @@ export function EarlyAccessForm() {
 
       form.reset();
       setStatus("success");
-      setMessage("You’re on the list. Welcome, Founding Bud.");
+
+      if (result.foundingBudNumber) {
+        setFoundingBudNumber(result.foundingBudNumber);
+        if (result.isReturning) {
+          setMessage(`Welcome back, Founding Bud #${result.foundingBudNumber}!`);
+        } else {
+          setMessage(`YOU'RE A FOUNDING BUD! Founding Bud #${result.foundingBudNumber}`);
+        }
+      } else {
+        setMessage("You're on the list. Welcome, Founding Bud.");
+      }
     } catch {
       setStatus("error");
       setMessage("We could not reach the server. Check your connection and try again.");
@@ -71,6 +83,12 @@ export function EarlyAccessForm() {
       <p className={`form-status ${status}`} role="status" aria-live="polite">
         {message}
       </p>
+      {foundingBudNumber && status === "success" && (
+        <div className="founding-bud-reveal" aria-live="polite">
+          <h3>YOU&apos;RE A FOUNDING BUD!</h3>
+          <p className="bud-number">Founding Bud #{foundingBudNumber}</p>
+        </div>
+      )}
     </form>
   );
 }
